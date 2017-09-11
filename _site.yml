@@ -5,6 +5,8 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+    - text: "Datasets"
+      href: datasets.html
     - text: Instructor bio
       href: bio.html
 output:
