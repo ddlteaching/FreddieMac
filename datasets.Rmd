@@ -4,3 +4,7 @@ output: html_document
 ---
 
 1. Iris dataset ([csv](data/iris.csv))
+2. US States data
+  - Population ([csv](data/state-population.csv))
+  - Area ([csv](data/state-areas.csv))
+  - Abbreviations ([csv](data/state-abbrevs.csv))
