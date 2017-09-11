@@ -4,16 +4,16 @@ author: "Abhijit Dasgupta, PhD"
 output: html_document
 ---
 
-This is part of the [District Data Labs](http://www.districtdatalabs.com) training 
+This is part of the <a href="http://www.districtdatalabs.com" target="_blank">District Data Labs</a> training 
 program
 
 ----
 
 <a href="http://www.python.org" target="_blank">Python</a> is one of the most popular programming languages. It is a free and open source language available for 
 all major operating systems. It is extensible through a packaging system that has resulted
-in over 110,000 user-contributed packages available on [PyPi](http://pypi.python.org). 
+in over 110,000 user-contributed packages available on <a href="http://pypi.python.org" target="_blank">PyPi</a>.
 
-The Python Data Science stack has become a very capable stack for data analysis and 
+The <a href="https://pydata.org/downloads.html" target="_blank">Python Data Science stack</a> has become a very capable stack for data analysis and 
 machine learning, which is then easily deployable. In this course, we will develop
 a knowledge of some major machine learning algorithms, how they may be implemented, and how the Python Data Science stack can be used to fit these machine learning models
 to datasets. 
