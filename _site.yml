@@ -5,14 +5,8 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: Syllabus
-      href: syllabus1.html
     - text: Instructor bio
       href: bio.html
-    - text: Lectures
-      href: lectures.html
-    - text: Resources
-      href: resources.html
 output:
   html_document:
     theme: cosmo
