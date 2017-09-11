@@ -1,7 +1,7 @@
-name: "BIOF 339"
+name: "Python for ML"
 output_dir: "."
 navbar:
-  title: "Practical R"
+  title: "Python for Machine Learning"
   left:
     - text: "Home"
       href: index.html
