@@ -8,7 +8,7 @@ highlighter: rouge
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : Python for Machine Learning
+# title : Python for Machine Learning
 author :
   name : Abhijit Dasgupta
   email : adasgupta@araastat.com
