@@ -3,6 +3,8 @@ Datasets
 
  
 
-1.  Iris dataset ([csv](data/iris.csv))
+1.  Iris dataset ([csv](../data/iris.csv))
+
+ 
 
  
