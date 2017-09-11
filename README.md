@@ -1,3 +1,4 @@
-# BIOF339_PracticalR
+Python for Machine Learning
+===========================
 
-This is a repository for the web-page of BIOF 339. 
+ 
