@@ -1,0 +1,29 @@
+---
+title: "Example"
+author: "Abhijit"
+date: "11/7/2016"
+output:
+  html_document: default
+  word_document: default
+---
+```{r preamble, echo=F, eval=F}
+library(ggplot2)
+
+load('mydata1.rda')
+load('mydata2.rda')
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Our data set has `r nrow(cars)` observations and `r ncol(cars)` variables
+
+
+```{r}
+load('models.RData')
+library(broom)
+models[[1]]
+plyr::ldply(models,tidy)
+```
+

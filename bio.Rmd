@@ -1,0 +1,13 @@
+---
+title: Instructor biography
+output: html_document
+---
+
+#### Abhijit Dasgupta, PhD
+
+Dr. Dasgupta is a biostatistician and data scientist with experience in statistical 
+modeling and machine learning, bioinformatics, optimization, signal processing, and 
+data visualization. He holds a PhD in Biostatistics with earlier training in Mathematical
+Statistics.  He co-organizes
+the [Statistical Programming DC](http://www.meetup.com/stats-prog-dc) meetup (formerly R Users Group DC). He 
+regularly gives workshops and webinars on using R and Python for data analysis. 
