@@ -1,6 +1,6 @@
 ---
 title: "Python for Machine Learning"
-author: "Abhijit Dasgupta"
+author: "Abhijit Dasgupta, PhD"
 output: html_document
 ---
 
