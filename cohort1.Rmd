@@ -1,0 +1,13 @@
+---
+title: "Cohort 1"
+author: "Abhijit Dasgupta"
+output: html_document
+---
+
+```{r, echo=F}
+d <- data.frame('Day' = 1, 'Notebook' = '[link](Lectures/Cohort1/Day 1 Cohort 1.ipynb)',
+                'HTML' = '[link](Lectures/Cohort1/Day 1 Cohort 1.html)',
+                'Python' = '[link](Lectures/Cohort1/Day 1 Cohort 1.py)')
+knitr::kable(d)
+```
+
