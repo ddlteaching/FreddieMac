@@ -4,10 +4,25 @@ author: "Abhijit Dasgupta"
 output: html_document
 ---
 
+## Notebooks
+
 ```{r, echo=F}
 d <- data.frame('Day' = 1, 'Notebook' = '[link](Lectures/Cohort2/Day 1 Cohort 2.ipynb)',
                 'HTML' = '[link](Lectures/Cohort2/Day 1 Cohort 2.html)',
                 'Python' = '[link](Lectures/Cohort2/Day 1 Cohort 2.py)')
+d <- rbind(d, data.frame('Day'=2,
+                         'Notebook' = '[link](Lectures/Cohort2/Day2Cohort2.ipynb)',
+                         'HTML'='',
+                         'Python'=''))
 knitr::kable(d)
 ```
 
+## Python script files
+
+1. Decision Tree from scratch ([link](scripts/MyDT.py))
+2. Decisiont Tree fit and validation ([link](scripts/DTImplementation.py))
+
+## Presentations
+
+1. Introduction to Machine Learning ([link](present/Session1B.pdf))
+2. Decision Trees ([link](present/DTSlides.html))

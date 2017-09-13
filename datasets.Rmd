@@ -8,3 +8,4 @@ output: html_document
   - Population ([csv](data/state-population.csv))
   - Area ([csv](data/state-areas.csv))
   - Abbreviations ([csv](data/state-abbrevs.csv))
+3. Boston Housing ([csv](data/boston.csv))
