@@ -33,7 +33,7 @@ boston2 = pd.DataFrame(boston['data'], columns = boston['feature_names'])
 boston2['MedianIncome'] = boston['target']
 boston2.to_csv('boston.csv', index=False)
 
-sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import accuracy_score, mean_squared_error, r2_score
 
@@ -43,10 +43,15 @@ from sklearn.metrics import accuracy_score, mean_squared_error, r2_score
 X, y = iris1['data'], iris1['target']
 iris_model = DecisionTreeClassifier()
 iris_model.fit(X,y)
+
+y_pred = iris_model.predict(X)
+pd.crosstab(y, y_pred)
 scores = cross_val_score(iris_model, X, y, cv=10)
 
 importance = iris_model.feature_importances_
 y_pred = iris_model.predict(X)
+
+## Decision surfaces
 
 X1 = X[:,2:]
 x_min, x_max = X1[:,0].min()-0.1, X1[:,0].max()+0.1
@@ -55,7 +60,6 @@ y_min, y_max = X1[:,1].min()-0.1, X1[:,1].max()+0.1
 xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.02),
                      np.arange(y_min, y_max, 0.02))
 
-## Decision surfaces
 from matplotlib.colors import ListedColormap
 
 iris_model2 = DecisionTreeClassifier()
@@ -78,8 +82,8 @@ scores = cross_val_score(iris_model, X, y, cv=10)
 iris_model.get_params()
 from sklearn.model_selection import GridSearchCV
 
-param_grid = {'max_depth': [1, 2, 3],
-              'min_samples_leaf': [0.05, 0.10],
+param_grid = {'max_depth': [1, 2, 3, 5, 10],
+              'min_samples_leaf': [0.05, 0.10, .20, 1],
               'splitter': ['best','random']}
 
 grid_search = GridSearchCV(iris_model, param_grid, cv = 5)
@@ -112,11 +116,14 @@ plt.ylabel('score')
 
 from sklearn.model_selection import learning_curve
 
+indx = np.arange(X.shape[0])
+np.random.shuffle(indx)
+
 fig, ax = plt.subplots(1,3, sharey=True)
 
 for i, depth in enumerate([2, 5, 15]):
     N, train_lc, val_lc = learning_curve(DecisionTreeClassifier(max_depth = depth),
-                                         X, y, cv = 5,
+                                         X[indx,:], y[indx], cv = 5,
                                          train_sizes = np.linspace(0.1,1, 25))
     ax[i].plot(N, np.mean(train_lc,1), color='blue', label='training score')
     ax[i].plot(N, np.mean(val_lc, 1), color = 'red', label ='validation score')
@@ -130,6 +137,11 @@ for i, depth in enumerate([2, 5, 15]):
 
 
 ## Regression
+boston = sklearn.datasets.load_boston()
+boston2 = pd.DataFrame(boston['data'], columns = boston['feature_names'])
+boston2['MedianIncome'] = boston['target']
+boston2.to_csv('boston.csv', index=False)
+
 
 boston_model1 = DecisionTreeRegressor(max_depth=2)
 boston_model2 = DecisionTreeRegressor(max_depth = 5)
@@ -219,9 +231,6 @@ cols_to_retain = ['Body Temperature', 'Skin Cover', 'Gives Birth', 'Aquatic Crea
 X_feature = vertebrates[cols_to_retain]
 X_dict = X_feature.T.to_dict().values()
 
-# turn list of dicts into a numpy array
-vect = DictVectorizer(sparse=False)
-X_vector = vect.fit_transform(X_dict)
 
 # turn list of dicts into a numpy array
 vect = DictVectorizer(sparse=False)
