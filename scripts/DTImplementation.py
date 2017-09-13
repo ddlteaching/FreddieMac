@@ -201,3 +201,44 @@ bl = bl.iloc[:,:-2]
 marginal_predict = boston_model_best.predict(bl)
 
 plt.plot(bl['RM'], marginal_predict,'.')
+
+##########################################################
+# Vertebrate data
+##########################################################
+
+vertebrates = pd.read_csv('vertebrate.csv')
+
+vertebrates.head()
+vertebrates['Class Label'].unique()
+
+from sklearn.preprocessing import LabelEncoder
+from sklearn.feature_extraction import DictVectorizer
+
+cols_to_retain = ['Body Temperature', 'Skin Cover', 'Gives Birth', 'Aquatic Creature', 'Aerial Creature', 'Has Legs', 'Hibernates']
+
+X_feature = vertebrates[cols_to_retain]
+X_dict = X_feature.T.to_dict().values()
+
+# turn list of dicts into a numpy array
+vect = DictVectorizer(sparse=False)
+X_vector = vect.fit_transform(X_dict)
+
+# turn list of dicts into a numpy array
+vect = DictVectorizer(sparse=False)
+X_vector = vect.fit_transform(X_dict)
+vect.get_feature_names()
+
+X_df = pd.DataFrame(X_vector, columns = vect.get_feature_names())
+
+# Used to vectorize the class label
+le = LabelEncoder()
+y= le.fit_transform(vertebrates['Class Label'][:-1])
+
+vert_model = DecisionTreeClassifier(criterion='gini')
+vert_model.fit(X_vector[:-1],y)
+
+##########################################################
+# Breast cancer data
+##########################################################
+
+brain = sklearn.datasets.load_breast_cancer()
