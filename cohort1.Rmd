@@ -20,7 +20,7 @@ knitr::kable(d)
 ## Python script files
 
 1. Decision Tree from scratch ([link](scripts/MyDT.py))
-2. Decisiont Tree fit and validation ([link](scripts/DTImplementation.py))
+2. Decision Tree fit and validation ([link](scripts/DTImplementation.py))
 3. Introduction to Random Forests ([link](scripts/RFIntro.py))
 4. Random Forests deconstructed ([link](scripts/RFDeconstructed.py))
 
@@ -28,3 +28,4 @@ knitr::kable(d)
 
 1. Introduction to Machine Learning ([link](present/Session1B.pdf))
 2. Decision Trees ([link](present/DTSlides.html))
+3. Bias, Variance and Random Forests ([link](present/BiasVariance.html))
