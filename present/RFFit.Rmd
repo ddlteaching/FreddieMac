@@ -27,7 +27,7 @@ There are four main parameters for a random forest:
 3. Depth of each tree (`max_depth`)
 4. Minimum sample size at each terminal node (`min_sample_leaf`)
 
-## max_features
+## min_sample_leaf
 
 ![](RFminsample.png)
 
@@ -76,7 +76,7 @@ See implementation in script
   + Prediction intervals for each individual prediction
   + Confidence intervals for feature importance measures
   
-# An exploration of different metrics
+## An exploration of different metrics
 
 1. Accuracy : What proportion of predictions are correct
 2. Precision: What proportion of positives are true
