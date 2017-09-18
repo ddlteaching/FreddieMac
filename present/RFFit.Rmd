@@ -102,5 +102,10 @@ For binary outcomes, you can also get probability predictions from random forest
 
 ![](LossFns.png)
 
+## Calibration curves
+
+![](calibration.png)
+
 # Stacking
+
 
