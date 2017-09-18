@@ -1,0 +1,44 @@
+---
+title: "Fitting Random Forests"
+output: 
+  revealjs::revealjs_presentation:
+    theme: solarized
+    highlights: pygments
+    transition: none
+    slide_level: 2
+    center: true
+---
+
+## Random Forest
+
+Random Forests are 
+
++ bagged decision trees where
++ a random subset of predictors is used for each split
+
+## Random Forests
+
+There are four main parameters for a random forest:
+
+1. Number of estimators (bootstrap samples)
+2. Proportion of predictors to use at each split (`max_features`)
+3. Depth of each tree (`max_depth`)
+4. Minimum sample size at each terminal node (`min_sample_leaf`)
+
+## max_features
+
+![](RFminsample.png)
+
+## max_features
+
+![](mtry.png)
+
+## max_depth
+
+![](depth.png)
+
+## Number of estimators
+
+![](no_est.png)
+
+
