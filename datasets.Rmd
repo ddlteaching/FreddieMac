@@ -10,3 +10,4 @@ output: html_document
   - Abbreviations ([csv](data/state-abbrevs.csv))
 3. Boston Housing ([csv](data/boston.csv))
 4. Vertebrates ([csv](data/vertebrate.csv))
+5. Adult income data ([training csv](data/adult.data), [test csv](data/adult.test))

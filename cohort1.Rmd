@@ -23,6 +23,8 @@ knitr::kable(d)
 2. Decision Tree fit and validation ([link](scripts/DTImplementation.py))
 3. Introduction to Random Forests ([link](scripts/RFIntro.py))
 4. Random Forests deconstructed ([link](scripts/RFDeconstructed.py))
+5. Random Forest Tuning ([link](scripts/RFTuning.py))
+6. Random Forest metrics and calibration ([link](scripts/RFClassReg.py))
 
 ## Presentations
 
