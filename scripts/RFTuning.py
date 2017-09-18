@@ -198,3 +198,11 @@ plt.barh(range(X.shape[1]), imps[indx], color='r',
          xerr = imp_sd/np.sqrt(50))
 plt.yticks(range(len(indx)), np.array(names)[indx])
 
+#==============================================================================
+# Variable selection
+#==============================================================================
+
+from sklearn.feature_selection import RFECV
+estimator = RandomForestClassifier(n_estimators=200, random_state=5)
+selector = RFECV(estimator, cv=5, scoring='roc_auc')
+selector.fit(X,y)
