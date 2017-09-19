@@ -26,7 +26,7 @@ knitr::kable(d)
 5. Random Forest Tuning ([link](scripts/RFTuning.py))
 6. Random Forest metrics and calibration ([link](scripts/RFClassReg.py))
 7. Stacking ([link](scripts/stacking.py))
-8. Boosting ([link](scripts/boosting.py))
+8. Boosting ([link](scripts/boosting.py)) ([In-class code](scripts/Cohort1Day6.py))
 
 ## Presentations
 
