@@ -1,0 +1,48 @@
+---
+title: "Fitting Random Forests"
+output:
+  revealjs::revealjs_presentation:
+    theme: solarized
+    highlights: pygments
+    transition: none
+    slide_level: 2
+    center: true
+---
+
+# Boosting
+
+## The basic challenge
+
++ Take a weak learner (one slightly better than random guessing)
++ Turn it into a strong learner (one with arbitrary accuracy)
+
+## The conceptual implementation
+
++ Fit a learner to your data
++ Evaluate the residuals
++ Fit a learner to the residuals 
++ Grab the predictions from this model (which should correct the errors from the first model)
++ Add the predictions to form your new predictions
++ Repeat M times
+
+## The conceptual implementation
+
++ We are adding a sequence of learners
+
+$$ F(x) = \sum_{i=1}^M F_i(x) $$
+
++ Once we fit a learner, we keep its prediction
++ We want to improve the prediction by seeing where it went wrong
++ Predict the degree to which it went wrong
++ Correct the original predictions
+
+## The conceptual model
+
++ $h(x)$ is a weak learner
++ Fit $F_1(x)$ to your data
++ $F_2(x) = F_1(x) + h(x)$
++ $F_3(x) = F_2(x) + h(x)$
++ and so on, for _M_ iterations
+  
+
+## T
