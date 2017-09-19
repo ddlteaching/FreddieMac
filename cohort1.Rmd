@@ -26,7 +26,7 @@ knitr::kable(d)
 5. Random Forest Tuning ([link](scripts/RFTuning.py))
 6. Random Forest metrics and calibration ([link](scripts/RFClassReg.py))
 7. Stacking ([link](scripts/stacking.py))
-8. Boosting ([link](scripts/boost.py))
+8. Boosting ([link](scripts/boosting.py))
 
 ## Presentations
 
@@ -34,4 +34,4 @@ knitr::kable(d)
 2. Decision Trees ([link](present/DTSlides.html))
 3. Bias, Variance and Random Forests ([link](present/BiasVariance.html)) ([pdf](present/BiasVariance.pdf))
 4. Fitting Random Forests ([link](present/RFFit.html))
-5. Boosting ([link](present/Boosting.html))
+5. Boosting ([link](present/boost.html))
