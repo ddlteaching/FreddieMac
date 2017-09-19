@@ -31,7 +31,7 @@ knitr::kable(d)
 ## Presentations
 
 1. Introduction to Machine Learning ([link](present/Session1B.pdf))
-2. Decision Trees ([link](present/DTSlides.html))
+2. Decision Trees ([link](present/DTSlides.html)) ([pdf](present/DTSlides.pdf))
 3. Bias, Variance and Random Forests ([link](present/BiasVariance.html)) ([pdf](present/BiasVariance.pdf))
-4. Fitting Random Forests ([link](present/RFFit.html))
-5. Boosting ([link](present/boost.html))
+4. Fitting Random Forests ([link](present/RFFit.html)) ([pdf](present/RFFit.pdf))
+5. Boosting ([link](present/boost.html)) ([pdf](present/boost.pdf))
