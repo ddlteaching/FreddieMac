@@ -35,3 +35,8 @@ knitr::kable(d)
 3. Bias, Variance and Random Forests ([link](present/BiasVariance.html)) ([pdf](present/BiasVariance.pdf))
 4. Fitting Random Forests ([link](present/RFFit.html)) ([pdf](present/RFFit.pdf))
 5. Boosting ([link](present/boost.html)) ([pdf](present/boost.pdf))
+
+## Resources
+
+1. `rpy2` package for calling R from Python. [Windows binaries](http://www.lfd.uci.edu/~gohlke/pythonlibs/#rpy2)
+
