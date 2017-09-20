@@ -12,5 +12,6 @@ output: html_document
 4. Vertebrates ([csv](data/vertebrate.csv))
 5. Adult income data ([training csv](data/adult.data), [test csv](data/adult.test))
 6. XGBoost sample data ([training](data/agaricus.txt.train), [test](data/agaricus.txt.test))
+7. Dermatology data ([link](data/dermatology.data))
 7. Freddie Mac sample data ([link](data/for_training_small.xlsx))
 8. Allstate data ([training](data/allstate_train.csv), [test](data/allstate_test.csv))
