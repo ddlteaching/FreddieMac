@@ -3,10 +3,13 @@ title: "Boosting"
 #output: revealjs::revealjs_presentation
 output:
   revealjs::revealjs_presentation:
-    theme: league
+    #theme: league
+    theme: sky
     highlights: pygments
     transition: none
     slide_level: 2
+    reveal-plugins: notes, chalkboard
+    self_contained: FALSE
     center: true
 
 ---
