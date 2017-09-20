@@ -28,7 +28,7 @@ import seaborn as sns
 ## A look at classification vs regression accuracy, and loss scores
 
 
-dat = pd.read_csv('adult.data', header=None, 
+dat = pd.read_csv('../data/adult.data', header=None, 
                   names = ['age','workclass', 'fnlwgt','education', 'marital', 
                   'occupation', 'relationship','race','sex','capitalgain',
                   'capitalloss','hrsweek','country','income_class'])
