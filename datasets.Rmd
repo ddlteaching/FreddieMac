@@ -3,6 +3,10 @@ title: "Datasets"
 output: html_document
 ---
 
+Windows binary for xgboost ([link](data/libxgboost.dll))
+
+## Datasets
+
 1. Iris dataset ([csv](data/iris.csv))
 2. US States data
   - Population ([csv](data/state-population.csv))
