@@ -25,9 +25,13 @@ knitr::kable(d)
 4. Random Forests deconstructed ([link](scripts/RFDeconstructed.py))
 5. Random Forest Tuning ([link](scripts/RFTuning.py))
 6. Random Forest metrics and calibration ([link](scripts/RFClassReg.py))
-7. Stacking ([link](scripts/stacking.py))
 8. Boosting ([link](scripts/boosting.py)) ([In-class code](scripts/Cohort1Day6.py))
-9. XGBoost ([link](scripts/xgboost.py))
+9. XGBoost ([link](scripts/xgboost.py)) ([In class script file](scripts/Cohort2Day7.py))
+7. Stacking ([link](scripts/stacking2.py))
+10. Pipelines ([link](scripts/pipelines2.py))
+11. PMML ([link](scripts/pmml.py))
+12. Effect sizes ([link](scripts/effects.py))
+
 
 ## Presentations
 
@@ -35,7 +39,13 @@ knitr::kable(d)
 2. Decision Trees ([link](present/DTSlides.html)) ([pdf](present/DTSlides.pdf))
 3. Bias, Variance and Random Forests ([link](present/BiasVariance.html)) ([pdf](present/BiasVariance.pdf))
 4. Fitting Random Forests ([link](present/RFFit.html)) ([pdf](present/RFFit.pdf))
-5. Boosting ([link](present/boost.html)) ([pdf](present/boost.pdf))# Resources
+5. Boosting ([link](present/boost.html)) ([pdf](present/boost.pdf))
+6. Stacking ([link](present/stacking.html))([pdf](present/stacking.pdf))
+7. Interpretations ([link](http://webbedfeet.github.io/Dartmouth2))
+
+
+
+# Resources
 
 1. `rpy2` package for calling R from Python. [Windows binaries](http://www.lfd.uci.edu/~gohlke/pythonlibs/#rpy2)
 

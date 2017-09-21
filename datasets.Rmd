@@ -3,7 +3,10 @@ title: "Datasets"
 output: html_document
 ---
 
-Windows binary for xgboost ([link](data/libxgboost.dll))
+# Resources
+
++ Windows binary for xgboost ([link](data/libxgboost.dll))
++ The `sklearn2pmml` Python package ([link](data/sklearn2pmml.zip))
 
 ## Datasets
 
@@ -19,3 +22,4 @@ Windows binary for xgboost ([link](data/libxgboost.dll))
 7. Dermatology data ([link](data/dermatology.data))
 7. Freddie Mac sample data ([link](data/for_training_small.xlsx))
 8. Allstate data ([training](data/allstate_train.csv), [test](data/allstate_test.csv))
+9. King County, WA Housing data ([link](data/kc_house_data.csv))
