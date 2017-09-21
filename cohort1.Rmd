@@ -41,7 +41,7 @@ knitr::kable(d)
 4. Fitting Random Forests ([link](present/RFFit.html)) ([pdf](present/RFFit.pdf))
 5. Boosting ([link](present/boost.html)) ([pdf](present/boost.pdf))
 6. Stacking ([link](present/stacking.html))([pdf](present/stacking.pdf))
-7. Interpretations ([link](http://webbedfeet.github.io/Dartmouth2))
+7. Interpretations ([link](http://webbedfeet.github.io/Dartmouth2)) ([pdf](present/Interpretations.pdf))
 
 
 
