@@ -1,0 +1,34 @@
+---
+title: "Interpretations"
+output: revealjs::revealjs_presentation
+---
+
+# Interpreting a linear model
+
+## Familiar interpretation
+
+The slope is the change in outcome for a unit change in predictor value, everything 
+else remaining the same
+
+## Counterfactual argument
+
+This is a counterfactual argument
+
+What __could__ happen
+
+## Counterfactuals from ML models
+
+Use the prediction engine to generate counterfactual predictions
+
+1. Binary predictor _x_
+2. Train model on data when x= 0 (M0)
+3. Predict on data when x = 1
+4. Compare these predictions with cross-validated predictions when x = 0
+5. Differences give individual level counterfactual effect
+6. Average to get the "average treatment effect (ATE)"
+
+## Counterfactuals from ML models
+
++ M0 captures environment when x=0
++ The prediction captures what might happen when someone with x=1 is transplanted into the x=0 environment
+

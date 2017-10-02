@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" version="4.3">
+	<Header>
+		<Application name="JPMML-SkLearn" version="1.3.9"/>
+		<Timestamp>2017-09-21T03:54:13Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension>PMMLPipeline(steps=[('classifier', DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+            max_features=None, max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, presort=False, random_state=None,
+            splitter='best'))])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="Species" optype="categorical" dataType="string">
+			<Value value="setosa"/>
+			<Value value="versicolor"/>
+			<Value value="virginica"/>
+		</DataField>
+		<DataField name="Petal.Length" optype="continuous" dataType="float"/>
+		<DataField name="Petal.Width" optype="continuous" dataType="float"/>
+		<DataField name="Sepal.Length" optype="continuous" dataType="float"/>
+		<DataField name="Sepal.Width" optype="continuous" dataType="float"/>
+	</DataDictionary>
+	<TransformationDictionary>
+		<DerivedField name="double(Petal.Width)" optype="continuous" dataType="double">
+			<FieldRef field="Petal.Width"/>
+		</DerivedField>
+		<DerivedField name="double(Petal.Length)" optype="continuous" dataType="double">
+			<FieldRef field="Petal.Length"/>
+		</DerivedField>
+		<DerivedField name="double(Sepal.Length)" optype="continuous" dataType="double">
+			<FieldRef field="Sepal.Length"/>
+		</DerivedField>
+		<DerivedField name="double(Sepal.Width)" optype="continuous" dataType="double">
+			<FieldRef field="Sepal.Width"/>
+		</DerivedField>
+	</TransformationDictionary>
+	<TreeModel functionName="classification" splitCharacteristic="binarySplit">
+		<MiningSchema>
+			<MiningField name="Species" usageType="target"/>
+			<MiningField name="Petal.Width"/>
+			<MiningField name="Petal.Length"/>
+			<MiningField name="Sepal.Length"/>
+			<MiningField name="Sepal.Width"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(setosa)" optype="continuous" dataType="double" feature="probability" value="setosa"/>
+			<OutputField name="probability(versicolor)" optype="continuous" dataType="double" feature="probability" value="versicolor"/>
+			<OutputField name="probability(virginica)" optype="continuous" dataType="double" feature="probability" value="virginica"/>
+		</Output>
+		<Node id="1">
+			<True/>
+			<Node id="2" score="setosa" recordCount="50.0">
+				<SimplePredicate field="double(Petal.Width)" operator="lessOrEqual" value="0.800000011920929"/>
+				<ScoreDistribution value="setosa" recordCount="50.0"/>
+				<ScoreDistribution value="versicolor" recordCount="0.0"/>
+				<ScoreDistribution value="virginica" recordCount="0.0"/>
+			</Node>
+			<Node id="3">
+				<SimplePredicate field="double(Petal.Width)" operator="greaterThan" value="0.800000011920929"/>
+				<Node id="4">
+					<SimplePredicate field="double(Petal.Width)" operator="lessOrEqual" value="1.75"/>
+					<Node id="5">
+						<SimplePredicate field="double(Petal.Length)" operator="lessOrEqual" value="4.949999809265137"/>
+						<Node id="6" score="versicolor" recordCount="47.0">
+							<SimplePredicate field="double(Petal.Width)" operator="lessOrEqual" value="1.6500000953674316"/>
+							<ScoreDistribution value="setosa" recordCount="0.0"/>
+							<ScoreDistribution value="versicolor" recordCount="47.0"/>
+							<ScoreDistribution value="virginica" recordCount="0.0"/>
+						</Node>
+						<Node id="7" score="virginica" recordCount="1.0">
+							<SimplePredicate field="double(Petal.Width)" operator="greaterThan" value="1.6500000953674316"/>
+							<ScoreDistribution value="setosa" recordCount="0.0"/>
+							<ScoreDistribution value="versicolor" recordCount="0.0"/>
+							<ScoreDistribution value="virginica" recordCount="1.0"/>
+						</Node>
+					</Node>
+					<Node id="8">
+						<SimplePredicate field="double(Petal.Length)" operator="greaterThan" value="4.949999809265137"/>
+						<Node id="9" score="virginica" recordCount="3.0">
+							<SimplePredicate field="double(Petal.Width)" operator="lessOrEqual" value="1.5499999523162842"/>
+							<ScoreDistribution value="setosa" recordCount="0.0"/>
+							<ScoreDistribution value="versicolor" recordCount="0.0"/>
+							<ScoreDistribution value="virginica" recordCount="3.0"/>
+						</Node>
+						<Node id="10">
+							<SimplePredicate field="double(Petal.Width)" operator="greaterThan" value="1.5499999523162842"/>
+							<Node id="11" score="versicolor" recordCount="2.0">
+								<SimplePredicate field="double(Sepal.Length)" operator="lessOrEqual" value="6.949999809265137"/>
+								<ScoreDistribution value="setosa" recordCount="0.0"/>
+								<ScoreDistribution value="versicolor" recordCount="2.0"/>
+								<ScoreDistribution value="virginica" recordCount="0.0"/>
+							</Node>
+							<Node id="12" score="virginica" recordCount="1.0">
+								<SimplePredicate field="double(Sepal.Length)" operator="greaterThan" value="6.949999809265137"/>
+								<ScoreDistribution value="setosa" recordCount="0.0"/>
+								<ScoreDistribution value="versicolor" recordCount="0.0"/>
+								<ScoreDistribution value="virginica" recordCount="1.0"/>
+							</Node>
+						</Node>
+					</Node>
+				</Node>
+				<Node id="13">
+					<SimplePredicate field="double(Petal.Width)" operator="greaterThan" value="1.75"/>
+					<Node id="14">
+						<SimplePredicate field="double(Petal.Length)" operator="lessOrEqual" value="4.850000381469727"/>
+						<Node id="15" score="virginica" recordCount="2.0">
+							<SimplePredicate field="double(Sepal.Width)" operator="lessOrEqual" value="3.0999999046325684"/>
+							<ScoreDistribution value="setosa" recordCount="0.0"/>
+							<ScoreDistribution value="versicolor" recordCount="0.0"/>
+							<ScoreDistribution value="virginica" recordCount="2.0"/>
+						</Node>
+						<Node id="16" score="versicolor" recordCount="1.0">
+							<SimplePredicate field="double(Sepal.Width)" operator="greaterThan" value="3.0999999046325684"/>
+							<ScoreDistribution value="setosa" recordCount="0.0"/>
+							<ScoreDistribution value="versicolor" recordCount="1.0"/>
+							<ScoreDistribution value="virginica" recordCount="0.0"/>
+						</Node>
+					</Node>
+					<Node id="17" score="virginica" recordCount="43.0">
+						<SimplePredicate field="double(Petal.Length)" operator="greaterThan" value="4.850000381469727"/>
+						<ScoreDistribution value="setosa" recordCount="0.0"/>
+						<ScoreDistribution value="versicolor" recordCount="0.0"/>
+						<ScoreDistribution value="virginica" recordCount="43.0"/>
+					</Node>
+				</Node>
+			</Node>
+		</Node>
+	</TreeModel>
+</PMML>

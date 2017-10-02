@@ -1,11 +1,4 @@
 
-# coding: utf-8
-
-# # Machine Learning with Python
-
-# ## Abhijit Dasgupta, PhD
-
-# __WiFi__: Use the Blue network, then open browser and enter employee ID and RSA password
 
 # Data types: float, int, str, booleans
 
@@ -279,7 +272,7 @@ a
 
 # In[66]:
 
-DIR = {'first':['John','Paul','Ringo'], 'last': ['Lennon','McCartney','Starr'], 
+DIR = {'first':['John','Paul','Ringo'], 'last': ['Lennon','McCartney','Starr'],
       'birthday': [24, 2, 14], 'month': ['Jan','Feb','July']}
 
 
@@ -602,10 +595,10 @@ mysum(L1)
 def mysum(x):
     """
     Sums a list or an array
-    
+
     Input:
     x : a list or np.array of numbers
-    
+
     Output:
     A scalar, the sum
     """
@@ -615,7 +608,7 @@ def mysum(x):
             continue
         s += x[i]
     # Make sure to make return a function
-    # 
+    #
     return(s)
 
 

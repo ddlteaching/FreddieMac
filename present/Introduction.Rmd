@@ -1,0 +1,67 @@
+---
+title: "Introduction"
+output:
+  revealjs::revealjs_presentation:
+    #theme: league
+    theme: sky
+    highlights: pygments
+    transition: none
+    slide_level: 2
+    reveal-plugins: notes, chalkboard
+    self_contained: FALSE
+    center: true
+
+---
+
+# Introduction
+
+## About me
+
+- PhD in Biostatistics (U of Washington)
+- Trained at the National Cancer Institute
+- Consultant for NIH
+- Have my own startup building healthcare sensors
+- R user for 20 years, Python user for 10 years
+- Workshops in using R and Python for data science
+- ASA webinar and CE course on Best Practices in Data Science
+
+## About the training
+
+- Introduction to Python for data analysis
+- Decision Trees as base learners
+- Bagging and Random Forests
+- Boosting and XGBoost
+
+## Objectives
+
+- Provide an in-depth understanding of the algorithms
+  - How they work
+  - Strengths and weaknesses
+  - Usage and insights
+  - Interpretation
+  
+## Tools
+
+- The Anaconda Python distribution
+    - Should be available to you via Artifactory
+    - Geared towards using Python for data science
+    - "Batteries included"
+- XGBoost
+    - There is a Python xgboost package you should download from Artifactory
+    - It may not quite install 
+    - I'll guide you through that install on Thursday (10 mins)
+  
+# Python
+
+## Why Python?
+
+- General purpose scripting language
+    - Easier deployment
+    - "Easy" to learn
+- Has good data analytic capabilities now
+    - Numpy, Scipy, Matplotlib, Pandas
+    - <a href="https://pydata.org/downloads.html" target="_blank">PyData</a>
+    - Not as powerful as R or SAS, but quite capable.
+    - Often faster than either
+
+# A Gentle Introduction to Python for Data Science

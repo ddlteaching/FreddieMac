@@ -15,7 +15,7 @@ Stacking2
 # King County Housing Data
 #==============================================================================
 
-kcdata = pd.read_csv('kc_house_data.csv')s
+kcdata = pd.read_csv('kc_house_data.csv')
 kcdata.head()
 kcdata.columns
 
@@ -77,7 +77,7 @@ np.sqrt(mean_squared_error(y_test, preds2_a))
 
 #==============================================================================
 
-stacked_mod = LinearRegression()
+stacked_mod = RandomForestRegressor(n_estimators = 500, max_depth = 4, min_samples_leaf=20)
 stacked1 = stacked_mod.fit(metadf_train, y_train)
 preds1_b = stacked1.predict(metadf_test)
 

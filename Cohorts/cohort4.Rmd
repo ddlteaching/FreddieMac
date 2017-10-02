@@ -1,0 +1,20 @@
+---
+title: "Cohort 4"
+author: "Abhijit Dasgupta"
+date: "October 2, 2017"
+output: html_document
+---
+
+[Back to Cohorts page](../cohorts.html)
+
+## Python Scripts
+
+1. Introduction ([link](../scripts/Introduction.py))
+
+## Presentations
+
+1. Introduction (<a href = "../present/Introduction.html" target="_blank">link</a>)
+
+## Resources
+
+[Back to Cohorts page](../cohorts.html)

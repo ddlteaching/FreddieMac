@@ -7,10 +7,8 @@ navbar:
       href: index.html
     - text: "Datasets"
       href: datasets.html
-    - text: "Cohort 1"
-      href: cohort1.html
-    - text: "Cohort 2"
-      href: cohort2.html
+    - text: "Cohorts"
+      href: cohorts.html
     - text: "Instructor bio"
       href: bio.html
 output:

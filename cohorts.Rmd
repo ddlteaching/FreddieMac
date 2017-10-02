@@ -1,0 +1,18 @@
+---
+title: "Cohorts"
+author: "Abhijit Dasgupta"
+date: "October 2, 2017"
+output: html_document
+---
+
+# Freddie Mac Cohorts
+
+These pages reflect individualized activities done during teaching each cohort.
+They are for the most part the same, but do have some minor differences based
+on interactions with students.
+
+- [Cohort 1](Cohorts/cohort1.html)
+- [Cohort 2](Cohorts/cohort2.html)
+- [Cohort 3](Cohorts/cohort3.html)
+- [Cohort 4](Cohorts/cohort4.html)
+- [Cohort 5](Cohorts/cohort5.html)
