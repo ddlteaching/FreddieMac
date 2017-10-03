@@ -15,7 +15,7 @@ output: html_document
 
 ## Python Scripts
 
-1. Introduction ([link](../scripts/Introduction.py))([In class](cohort3day1.py))
+1. Introduction ([link](../scripts/Introduction.py))([In class](cohort4day1.py))
 2. Developing Decision Trees ([link](../scripts/MyDT.py))
 
 ## Resources
