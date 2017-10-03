@@ -320,7 +320,7 @@ A.fillna(A.mean())
 
 
 
-D = pd.DataFrame({'X1': [1,2, None, 4], 'X2': [3, None, 5, 6]})
+DD = pd.DataFrame({'X1': [1,2, None, 4], 'X2': [3, None, 5, 6]})
 D.isnull()
 D.mean()
 D.fillna(D.mean())
