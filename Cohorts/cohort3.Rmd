@@ -7,13 +7,16 @@ output: html_document
 
 [Back to Cohorts page](../cohorts.html)
 
-## Python Scripts
-
-1. Introduction ([link](../scripts/Introduction.py))([In class](cohort3day1.py))
-
 ## Presentations
 
 1. Introduction (<a href = "../present/Introduction.html" target="_blank">link</a>)
+2. Introduction to Machine Learning ([link](../present/IntroToML.pdf))
+3. Introduction to Decision Trees (<a href="../present/DTSlides.html" target="_blank">link</a>)
+
+## Python Scripts
+
+1. Introduction ([link](../scripts/Introduction.py))([In class](cohort3day1.py))
+2. Developing Decision Trees ([link](../scripts/MyDT.py))
 
 ## Resources
 
