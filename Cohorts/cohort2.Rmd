@@ -21,7 +21,7 @@ knitr::kable(d)
 
 ## Python script files
 
-1. Decision Tree from scratch ([link](../../scripts/MyDT.py))
+1. Decision Tree from scratch ([link](../scripts/MyDT.py))
 2. Decision Tree fit and validation ([link](../scripts/DTImplementation.py))
 3. Introduction to Random Forests ([link](../scripts/RFIntro.py))
 4. Random Forests deconstructed ([link](../scripts/RFDeconstructed.py))
