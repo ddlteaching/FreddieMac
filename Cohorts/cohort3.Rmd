@@ -23,5 +23,5 @@ output: html_document
 ## Resources
 
 1. Matplotlib gallery (<a href = "https://matplotlib.org/gallery.html" target = "_blank">link</a>)
-
+2. Examples of decision surfaces of different machine learning methods (<a href="http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html" target="_blank">link</a>)
 [Back to Cohorts page](../cohorts.html)
