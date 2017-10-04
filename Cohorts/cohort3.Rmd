@@ -17,7 +17,7 @@ output: html_document
 
 1. Introduction ([link](../scripts/Introduction.py))([In class](cohort3day1.py))
 2. Developing Decision Trees ([link](../scripts/MyDT.py))
-2. Decision Tree fit and validation ([link](../scripts/DTImplementation.py)) ([Day 2 and 3 script](../scripts/cohort3day2.py))
+2. Decision Tree fit and validation ([link](../scripts/DTImplementation.py)) ([Day 2 and 3 script](cohort3day2.py))
 
 
 ## Resources
