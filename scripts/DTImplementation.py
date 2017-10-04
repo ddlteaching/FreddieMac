@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import sklearn
+import sklearn # New
 %matplotlib inline
 
 def importance_plot(vals, names):
@@ -33,6 +33,7 @@ boston2 = pd.DataFrame(boston['data'], columns = boston['feature_names'])
 boston2['MedianIncome'] = boston['target']
 boston2.to_csv('boston.csv', index=False)
 
+
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import accuracy_score, mean_squared_error, r2_score
@@ -43,6 +44,21 @@ from sklearn.metrics import accuracy_score, mean_squared_error, r2_score
 X, y = iris1['data'], iris1['target']
 iris_model = DecisionTreeClassifier()
 iris_model.fit(X,y)
+
+### Cross validation (5-fold)
+
+from sklearn.model_selection import StratifiedKFold
+skf = StratifiedKFold(n_splits=5)
+
+skf.get_n_splits(iris1['data'],iris1['target'])
+for train_index,test_index in skf.split(iris1['data'],iris1['target']):
+    print(train_index)
+    print(test_index)
+
+
+rng = np.random.RandomState(45)
+
+
 
 y_pred = iris_model.predict(X)
 pd.crosstab(y, y_pred)
