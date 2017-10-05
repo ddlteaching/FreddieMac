@@ -93,7 +93,7 @@ def build_tree(train, max_depth, min_size, target_var):
     split(root, max_depth, min_size, 1, train, target_var)
     return(root)
 #
-x def predict_obs(tree, x):
+def predict_obs(tree, x):
     """
     Find the prediction for a single observation
     """
