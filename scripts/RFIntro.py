@@ -155,7 +155,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 rng = np.random.RandomState(37)
 y = truth + rng.normal(0, 0.2,100)
-poly = PolynomialFeatures(degree=20)
+poly = PolynomialFeatures(degree=10)
 model_over = LinearRegression(fit_intercept=True)
 X_poly = poly.fit_transform(X)
 model_over.fit(X_poly, y)
