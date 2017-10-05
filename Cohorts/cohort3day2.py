@@ -200,6 +200,7 @@ X_train, X_test, y_train, y_test = train_test_split(breast['data'],
                                                     breast['target'], 
                                                     test_size=.2, 
                                                     random_state=3)
+breast_model = DecisionTreeClassifier(max_depth=3, min_samples_leaf=10)
 breast_model.fit(X_train, y_train)
 
 breast_model = DecisionTreeClassifier(max_depth=2, min_samples_leaf = 20)
