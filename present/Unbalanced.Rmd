@@ -52,7 +52,7 @@ Call everyone low risk
 ## Evaluating the confusion matrix
 
 ```{r, echo=F}
-bl = cbind(c("TN","FN"),c("FP","TN"))
+bl = cbind(c("TN","FN"),c("FP","TP"))
 bl = as.data.frame(bl)
 names(bl) = c('Predict -ve', "Predict +ve")
 row.names(bl) = c("True -ve", 'True +ve')
