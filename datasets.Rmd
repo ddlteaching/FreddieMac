@@ -7,6 +7,7 @@ output: html_document
 
 + Windows binary for xgboost ([link](data/libxgboost.dll))
 + The `sklearn2pmml` Python package ([link](data/sklearn2pmml.zip))
++ A plethora of Python cheatsheets for Data Science (<a href = "https://unsupervisedmethods.com/cheat-sheet-of-machine-learning-and-python-and-math-cheat-sheets-a4afe4e791b6" target = "_blank">link</a>)
 
 ## Datasets
 
