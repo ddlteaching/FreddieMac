@@ -1,0 +1,66 @@
+---
+title: "Unbalanced data"
+output: 
+  revealjs::revealjs_presentation:
+    theme: solarized
+    highlights: pygments
+    transition: none
+    slide_level: 2
+    center: true
+---
+
+# The problem of unbalanced data
+
+## Unbalanced data
+
++ You have a binary outcome
++ One outcome (high risk) is much less frequent than the other (low risk)
++ Say only 5% of people are high risk
++ I want to improve my prediction of high risk individuals using ML
+
+## Unbalanced data
+
++ I'll give you a "stupid" prediction rule
+
+Call everyone low risk
+
++ This predictor is 95% accurate!!!
+
+# How to approach this problem
+
+## Data manipulation
+
++ Classifiers work better if classes are balanced
++ You can downsample the majority group to match the minority group
++ Fit a classifier 
++ Repeat and aggregate predictions to get average prediction for the minority class
+
+# Are we measuring performance appropriately?
+
+## An exploration of different metrics
+
+1. Accuracy : What proportion of predictions are correct
+2. Precision: What proportion of positives are true
+3. Recall: What proportion of true positives are called positive
+4. AUC : Area under the receiver operating characteristic (ROC) curve
+  + ROC maps (1-specificity) against sensitivity for different cutoffs
+  + Sensitivity = Recall
+  + Specificity = What proportion of true negatives are called negative
+5. F1 score: harmonic mean of Precision and Recall
+6. Brier score: Mean squared error of probability predictions
+
+## Evaluating the confusion matrix
+
+```{r, echo=F}
+bl = cbind(c("TN","FN"),c("FP","TN"))
+bl = as.data.frame(bl)
+names(bl) = c('Predict -ve', "Predict +ve")
+row.names(bl) = c("True -ve", 'True +ve')
+knitr::kable(bl)
+```
+
++ Precision = TP/(TP+FP)
++ Recall = TP/(TP+FN) = Sensitivity
++ Specificity = TN/(TN+FP)
++ F1 = 2(precision * recall)/(precision + recall)
+

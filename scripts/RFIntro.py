@@ -17,7 +17,7 @@ import seaborn as sns
 import sklearn
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import cross_val_predict
+from sklearn.model_selection import cross_val_predict, KFold
 
 
 ########################################
@@ -41,11 +41,11 @@ for i in range(1000):
     
     y = truth + rng.uniform(-.1, .1, size=100)
     
-    model_knn.fit(x[:,np.newaxis], y)
-    model_lr.fit(x[:,np.newaxis],y)
+    model_knn.fit(X, y)
+    model_lr.fit(X,y)
     
-    pred_knn[:,i] = cross_val_predict(model_knn, X, y, cv=5)
-    pred_lr[:,i] = cross_val_predict(model_lr, X, y, cv=5)
+    pred_knn[:,i] = cross_val_predict(model_knn, X, y, cv=KFold(3, shuffle=True))
+    pred_lr[:,i] = cross_val_predict(model_lr, X, y, cv=KFold(3, shuffle=True))
 
 
 plt.scatter(x,y, s=20)
@@ -74,8 +74,8 @@ plt.xlabel('x'); plt.ylabel('Squared prediction bias')
 plt.savefig('bias.png')
 
 
-var_knn = pred_knn.var(axis=1)
-var_lr = pred_lr.var(axis=1)
+sd_knn = np.sqrt(pred_knn.var(axis=1))
+sd_lr = np.sqrt(pred_lr.var(axis=1))
 
 plt.scatter(x, sd_knn,color='blue', s=20, label='kNN regression')
 plt.scatter(x, sd_lr, color='red', s=20, label='Linear regression')
