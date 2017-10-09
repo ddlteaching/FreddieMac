@@ -24,7 +24,7 @@ output: html_document
 2. Developing Decision Trees ([link](../scripts/MyDT.py))
 2. Decision Tree fit and validation ([link](../scripts/DTImplementation.py))([Day 2 and 3 script](cohort4day2.py))
 4. Looking at unbalanced data ([link](../scripts/unbalanced.py))
-5. Building bagged trees ([link](../scripts/RFIntro.py))
+5. Building bagged trees ([link](../scripts/RFIntro.py))([Day 4 script](cohort4day4.py))
 6. Deconstructing a Random Forest ([link](../scripts/RFDeconstructed.py))
 7. Tuning a Random Forest ([link](../scripts/RFTuning.py))
 8. Stacking ([link](../scripts/stacking2.py))
