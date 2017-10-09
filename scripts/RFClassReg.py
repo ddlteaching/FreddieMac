@@ -42,7 +42,6 @@ X = pd.get_dummies(dat.iloc[:,:-1])
 y = dat['income_class']
 
 from sklearn.preprocessing import LabelEncoder
-
 le= LabelEncoder()
 y = le.fit_transform(y)
 
@@ -52,7 +51,7 @@ y = le.fit_transform(y)
 # np.sum(y==1)
 # np.sum(y==0)
 X_test = pd.get_dummies(testdat.iloc[:,:-1])
-y_test = le.fit_transform(dat['income_class'])
+y_test = le.fit_transform(testdat['income_class'])
 
 #==============================================================================
 # The coding of income_class is different in test and training
