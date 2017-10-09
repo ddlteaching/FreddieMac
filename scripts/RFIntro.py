@@ -155,7 +155,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 rng = np.random.RandomState(37)
 y = truth + rng.normal(0, 0.2,100)
-poly = PolynomialFeatures(degree=10)
+poly = PolynomialFeatures(degree=20)
 model_over = LinearRegression(fit_intercept=True)
 X_poly = poly.fit_transform(X)
 model_over.fit(X_poly, y)
@@ -177,6 +177,12 @@ for i in range(5000):
     bagged_pred[:,i] = model_over.predict( X2)
 
 bagged_prediction = bagged_pred.mean(1)
+
+f, ax = plt.subplots(1,2,sharey=True)
+ax[0].scatter(x, y, s=20)
+ax[0].plot(x, model_over.predict(X_poly), 'r-')
+ax[0].set_title('Overfit model')
+
 ax[1].scatter(x,y,s=20)
 ax[1].plot(x, bagged_prediction,'r')
 ax[1].set_title('After bagging')

@@ -8,8 +8,16 @@ Stacking2
 @author: abhijit
 """
 
+## IPython magics
 %matplotlib inline
 %cd ~/ARAASTAT/Teaching/FreddieMacFinal/data
+
+## Preamble
+import numpy as np
+import pandas as pd
+import sklearn
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 #==============================================================================
 # King County Housing Data
@@ -28,7 +36,7 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.model_selection import train_test_split, cross_val_predict
-from xgboost import XGBRegressor
+# from xgboost import XGBRegressor
 from sklearn.metrics import mean_squared_error
 
 models = {'rf': RandomForestRegressor(max_depth=4, min_samples_leaf = 10, n_estimators=100),
@@ -57,25 +65,28 @@ metadf_test = pd.DataFrame(preds_test)
 ## Stacking
 ### Version 1
 
-stacked_mod = XGBRegressor(n_estimators=150, max_depth=4)
-stacked1 = stacked_mod.fit(metadf_train, y_train)
-preds1_a = stacked1.predict(metadf_test)
-
-### Version 2
-
-X_train.index = pd.Index(range(X_train.shape[0]))
-X_test.index = pd.Index(range(X_test.shape[0]))
-
-metadf_train2 = pd.concat([X_train, metadf_train], axis=1)
-metadf_test2 = pd.concat([X_test, metadf_test], axis=1)  
-
-stacked2 = stacked_mod.fit(metadf_train2, y_train)
-preds2_a = stacked2.predict(metadf_test2)  
-
-np.sqrt(mean_squared_error(y_test, preds1_a))
-np.sqrt(mean_squared_error(y_test, preds2_a))
+# stacked_mod = XGBRegressor(n_estimators=150, max_depth=4)
+# stacked1 = stacked_mod.fit(metadf_train, y_train)
+# preds1_a = stacked1.predict(metadf_test)
+#
+# ### Version 2
+#
+# X_train.index = pd.Index(range(X_train.shape[0]))
+# X_test.index = pd.Index(range(X_test.shape[0]))
+#
+# metadf_train2 = pd.concat([X_train, metadf_train], axis=1)
+# metadf_test2 = pd.concat([X_test, metadf_test], axis=1)
+#
+# stacked2 = stacked_mod.fit(metadf_train2, y_train)
+# preds2_a = stacked2.predict(metadf_test2)
+#
+# np.sqrt(mean_squared_error(y_test, preds1_a))
+# np.sqrt(mean_squared_error(y_test, preds2_a))
 
 #==============================================================================
+
+## Stacking
+### Version 1
 
 stacked_mod = RandomForestRegressor(n_estimators = 500, max_depth = 4, min_samples_leaf=20)
 stacked1 = stacked_mod.fit(metadf_train, y_train)
@@ -87,10 +98,10 @@ X_train.index = pd.Index(range(X_train.shape[0]))
 X_test.index = pd.Index(range(X_test.shape[0]))
 
 metadf_train2 = pd.concat([X_train, metadf_train], axis=1)
-metadf_test2 = pd.concat([X_test, metadf_test], axis=1)  
+metadf_test2 = pd.concat([X_test, metadf_test], axis=1)
 
 stacked2 = stacked_mod.fit(metadf_train2, y_train)
-preds2_b = stacked2.predict(metadf_test2)  
+preds2_b = stacked2.predict(metadf_test2)
 
 np.sqrt(mean_squared_error(y_test, preds1_b))
 np.sqrt(mean_squared_error(y_test, preds2_b))

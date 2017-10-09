@@ -1,6 +1,12 @@
 ---
 title: "Stacking"
-output: revealjs::revealjs_presentation
+output: 
+  revealjs::revealjs_presentation:
+    theme: solarized
+    highlights: pygments
+    transition: none
+    slide_level: 2
+    center: true
 ---
 
 # Ensemble learning
