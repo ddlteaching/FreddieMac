@@ -94,7 +94,7 @@ def myRFRegressor(dat, target_var, n_boot = 250,
         oob_preds[np.array(oob_indx[i]),i] = baseLearner.predict(X_oob)
     oob_preds = pd.DataFrame(oob_preds)
     oob_preds[oob_preds==-1] = np.nan
-    predictions = oob_preds.agg(np.nanmean, axis=1)
+    predictions = oob_preds.apply(np.nanmean, axis=1) #backward compatible to pandas 0.19
     return({'engines': engines, 'predictions': predictions})
 #'
 #' ### Determining predictions using RF from new data

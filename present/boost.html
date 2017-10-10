@@ -509,9 +509,10 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Sometimes a “learning rate” <span class="math inline">\(\alpha\)</span> is added, so you don’t move the whole way</li>
 <li><span class="math inline">\(F_k(x) = F_{k-1}(x) + \alpha h(x)\)</span></li>
 <li><p>This is to slow things down</p></li>
-<li><p>If <span class="math inline">\(\alpha\)</span> is small and <span class="math inline">\(M\)</span> is large, then you will get to minimum. # Loss functions</p></li>
+<li><p>If <span class="math inline">\(\alpha\)</span> is small and <span class="math inline">\(M\)</span> is large, then you will get to minimum.</p></li>
 </ul>
-</section><section id="gradient-descent-6" class="slide level2">
+</section></section>
+<section><section id="loss-functions" class="titleslide slide level1"><h1>Loss functions</h1></section><section id="gradient-descent-6" class="slide level2">
 <h2>Gradient descent</h2>
 <ul>
 <li>Conceptually think of residuals</li>
@@ -521,7 +522,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Loss function minimization</h2>
 <ul>
 <li>We want to minimize a chosen loss function <span class="math inline">\(L(y, X)\)</span></li>
-<li>The gradient of this loss function is $</li>
+<li>The gradient of this loss function is <span class="math inline">\(\frac{\del L(y,X)}{\del X}\)</span></li>
 <li>This is a vector with length = number of columns of X</li>
 <li>Compute this at each point</li>
 <li>Move in that direction</li>

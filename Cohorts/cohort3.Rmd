@@ -15,6 +15,7 @@ output: html_document
 4. Unbalanced data (<a href='../present/Unbalanced.html' target = '_blank'>link</a>)
 5. The Bias-Variance Tradeoff (<a href = "../present/BiasVariance.html" target = "_blank">link</a>)
 6. Fitting Random Forests (<a href = "../present/RFFit.html" target="_blank">link</a>)
+7. Boosting (<a href="../present/boost.html" target="_blank">link</a>)
 7. Stacking (<a href="../present/stacking.html" target = "_blank">link</a>)
 
 ## Python Scripts
@@ -27,6 +28,7 @@ output: html_document
 6. Deconstructing a Random Forest ([link](../scripts/RFDeconstructed.py))
 7. Tuning a Random Forest ([link](../scripts/RFTuning.py))
 8. Fitting a Random Forest ([link](../scripts/RFClassReg.py))
+9. Boosting from scratch ([link](../scripts/boost.py))
 8. Stacking ([link](../scripts/stacking2.py))
 
 

@@ -85,6 +85,7 @@ points(x0,y0, pch=3)
 + This is to slow things down
 
 + If $\alpha$ is small and $M$ is large, then you will get to minimum.
+
 # Loss functions
 
 ## Gradient descent
@@ -95,7 +96,7 @@ points(x0,y0, pch=3)
 ## Loss function minimization
 
 + We want to minimize a chosen loss function $L(y, X)$
-+ The gradient of this loss function is $\frac{\del L(y,X)}{\del X}
++ The gradient of this loss function is $\frac{\del L(y,X)}{\del X}$
 + This is a vector with length = number of columns of X
 + Compute this at each point
 + Move in that direction
