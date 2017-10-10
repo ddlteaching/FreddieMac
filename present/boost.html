@@ -553,16 +553,16 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section><section id="squared-error-loss" class="slide level2">
 <h2>Squared error loss</h2>
 <ul>
-<li><span class="math inline">\(L(y, x) = (y_i - x_i)^2/2\)</span></li>
-<li>Gradient <span class="math inline">\(G(x, y) = - (y_i - x_i)\)</span></li>
+<li><span class="math inline">\(L(y, p) = \sum(y_i - p_i)^2/2\)</span></li>
+<li>Gradient <span class="math inline">\(G(y, p) = - \sum(y_i - p_i)\)</span></li>
 <li>Note that this is essentially the residual</li>
 </ul>
 </section><section id="logistic-loss" class="slide level2">
 <h2>Logistic loss</h2>
 <ul>
-<li><span class="math inline">\(L(y,x) = \log(1 + e^{-yx})\)</span></li>
-<li><p>Gradient <span class="math inline">\(G(x,y) = -ye^{-yx}/(1+e^{-yx})\)</span></p></li>
-<li><p>This is often used for binary targets, where <span class="math inline">\(y\in {0,1}\)</span>, and <span class="math inline">\(x\)</span> is the predicted probabilities</p></li>
+<li><span class="math inline">\(L(y,p) = \log(1 + e^{-yp})\)</span></li>
+<li><p>Gradient <span class="math inline">\(G(y,p) = -ye^{-yp}/(1+e^{-yp})\)</span></p></li>
+<li><p>This is often used for binary targets, where <span class="math inline">\(y\in {0,1}\)</span>, and <span class="math inline">\(p\)</span> is the predicted probabilities</p></li>
 </ul>
 </section></section>
 <section><section id="stochastic-gradient-descent" class="titleslide slide level1"><h1>Stochastic Gradient Descent</h1></section><section id="stochastic-gradient-descent-1" class="slide level2">

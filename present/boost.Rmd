@@ -126,16 +126,16 @@ points(x0,y0, pch=3)
 
 ## Squared error loss
 
-+ $L(y, x) = (y_i - x_i)^2/2$
-+ Gradient $G(x, y) = - (y_i - x_i)$
++ $L(y, p) = \sum(y_i - p_i)^2/2$
++ Gradient $G(y, p) = - \sum(y_i - p_i)$
 + Note that this is essentially the residual
 
 ## Logistic loss
 
-+ $L(y,x) = \log(1 + e^{-yx})$
-+ Gradient $G(x,y) = -ye^{-yx}/(1+e^{-yx})$
++ $L(y,p) = \log(1 + e^{-yp})$
++ Gradient $G(y,p) = -ye^{-yp}/(1+e^{-yp})$
 
-+ This is often used for binary targets, where $y\in {0,1}$, and $x$ is the predicted probabilities
++ This is often used for binary targets, where $y\in {0,1}$, and $p$ is the predicted probabilities
 
 # Stochastic Gradient Descent
 
