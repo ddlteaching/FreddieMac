@@ -1,12 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Sep 18 00:39:29 2017
-
-Random forest parameters and tuning
-
-@author: abhijit
-"""
+#' ## Random forest parameters and tuning
 
 import os
 os.chdir('/Users/abhijit/ARAASTAT/Teaching/FreddieMacFinal/data')
@@ -21,12 +13,13 @@ from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 %matplotlib inline
 
 sns.set_style('darkgrid')
-#==============================================================================
-# The random forest has 4 main tuning parameters: 
-# min_samples_leaf (or min_samples_split),
-# max_depth
-# max_features (Fraction of features to select for splits)
-# n_estimators (No. of bootstraps)
+
+#' The random forest has 4 main tuning parameters:
+#'
+#' 1. min_samples_leaf (or min_samples_split),
+#' 2. max_depth
+#' 3. max_features (Fraction of features to select for splits)
+#' 4. n_estimators (No. of bootstraps)
 #==============================================================================
 
 from sklearn.datasets import load_breast_cancer
@@ -71,7 +64,7 @@ plt.ylabel('OOB accuracy')
 plt.legend(loc='best')
 plt.title('Number of predictors in split')
 plt.savefig('../present/mtry.png')
-    
+
 
 depths = [1, 2, 3,5, 10, 20]
 nboots = range(50,501, 50)

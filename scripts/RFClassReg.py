@@ -1,17 +1,14 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Sep 17 20:29:09 2017
+#' ## Data analysis and modeling with random forests
 
-Data analysis and modeling with random forests
+#' We will go through the steps of a data analysis using a random forest classifier
+#' to illustrate both the way to go from dataset to predictions, as well as to
+#' teach some Python concepts.
 
-@author: abhijit
-"""
-
+#' First change the directory to move Python to the data
 import os
 os.chdir('/Users/abhijit/ARAASTAT/Teaching/FreddieMacFinal/data')
 
-
+#' Then import the usual stack of packages
 import numpy as np
 import pandas as pd
 import sklearn
@@ -19,23 +16,37 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 %matplotlib inline
 
+#' Read in the data. In this case the dataset only consists of data without a first
+#' row that contains the column names (or headers). This necessitates the
+#' `header=None` option. The test data file also contains some annotation in the
+#' first row that we don't want to import. This necessitates the `skiprows=1` option.
 
-
-## Creating exemplar data sets in Python
-
-
-
-## A look at classification vs regression accuracy, and loss scores
-
-
-dat = pd.read_csv('../data/adult.data', header=None, 
-                  names = ['age','workclass', 'fnlwgt','education', 'marital', 
+dat = pd.read_csv('adult.data', header=None,
+                  names = ['age','workclass', 'fnlwgt','education', 'marital',
                   'occupation', 'relationship','race','sex','capitalgain',
                   'capitalloss','hrsweek','country','income_class'])
 testdat = pd.read_csv('adult.test', header=None, skiprows=1,
-                      names = ['age','workclass', 'fnlwgt','education', 'marital', 
+                      names = ['age','workclass', 'fnlwgt','education', 'marital',
                   'occupation', 'relationship','race','sex','capitalgain',
                   'capitalloss','hrsweek','country','income_class'])
+
+#' Let's take a quick peek at this dataset.
+dat.head()
+
+#' Uh oh! It looks like the age data got pushed to the index of the DataFrame.
+#' Further inspection reveals that in fact, there is one column header missing,
+#' for the fifth column. That is easily fixed as follows:
+dat = pd.read_csv('adult.data', header=None,
+                  names = ['age','workclass', 'fnlwgt','education', 'edyrs',
+                  'marital',
+                  'occupation', 'relationship','race','sex','capitalgain',
+                  'capitalloss','hrsweek','country','income_class'])
+testdat = pd.read_csv('adult.test', header=None, skiprows=1,
+                      names = ['age','workclass', 'fnlwgt','education', 'edyrs',
+                      'marital',
+                      'occupation', 'relationship','race','sex','capitalgain',
+                  '   capitalloss','hrsweek','country','income_class'])
+pd.Series(dat['capitalloss']).describe()
 
 
 X = pd.get_dummies(dat.iloc[:,:-1])
@@ -46,7 +57,7 @@ le= LabelEncoder()
 y = le.fit_transform(y)
 
 #from sklearn.model_selection import train_test_split
-#X_train, X_test, y_train, y_test = train_test_split(X, y,  
+#X_train, X_test, y_train, y_test = train_test_split(X, y,
 #                                                    train_size = .3, random_state=32)
 # np.sum(y==1)
 # np.sum(y==0)
@@ -84,25 +95,26 @@ from sklearn.metrics import f1_score
 
 rf_class = RandomForestClassifier(warm_start=True, random_state=50, oob_score=True)
 rf_reg = RandomForestRegressor(warm_start=True, random_state=50, oob_score=True)
-
+pd.DataFrame(X_train).describe()
 nboot = range(50,500,50)
 
 scores_class = {'oob':[], 'acc':[], 'auc':[], 'precision':[], 'recall':[], 'brier':[], 'f1':[]}
 scores_reg = {'oob':[], 'acc':[], 'auc':[], 'precision':[], 'recall':[], 'brier':[], 'f1':[]}
 
+X
 
 for n_est in nboot:
     print(n_est)
     rf_class.set_params(n_estimators = n_est)
     rf_reg.set_params(n_estimators = n_est)
-    
+
     rf_class.fit(X,y)
     rf_reg.fit(X, y)
-    
+
     p_class = rf_class.predict(X_test)
     p_class_prob = rf_class.predict_proba(X_test)[:,1]
     p_reg = rf_reg.predict(X_test)
-    
+
     scores_class['oob'].append(rf_class.oob_score_)
     scores_class['acc'].append(accuracy_score(y_test, p_class))
     scores_class['auc'].append(roc_auc_score(y_test, p_class_prob))
@@ -110,9 +122,9 @@ for n_est in nboot:
     scores_class['recall'].append(recall_score(y_test, p_class))
     scores_class['brier'].append(brier_score_loss(y_test, p_class_prob))
     scores_class['f1'].append(f1_score(y_test, p_class))
-    
+
     p_reg_class = p_reg > 0.5
-    
+
     scores_reg['oob'].append(rf_reg.oob_score_)
     scores_reg['acc'].append(accuracy_score(y_test, p_reg_class))
     scores_reg['auc'].append(roc_auc_score(y_test, p_reg))
@@ -154,4 +166,3 @@ plt.savefig('../present/calibration.png')
 
 plt.hist(p_class_prob, label='Classification', histtype='step')
 plt.hist(p_reg, label='Regression', histtype='step')
-

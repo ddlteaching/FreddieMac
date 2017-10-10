@@ -20,9 +20,9 @@ import pickle
 
 dtrain = xgb.DMatrix('agaricus.txt.train') # target is embedded. Use dtrain.get_label() to extract
 dtest = xgb.DMatrix('agaricus.txt.test')
-param = {'max_depth':2, 
+param = {'max_depth':2,
 'eta':1, # Learning rate
-'silent':1, 
+'silent':1,
 'objective':'binary:logistic' }
 num_round = 2
 watchlist = [(dtest,'eval'), (dtrain,'train')]
@@ -82,13 +82,13 @@ def preprocess(D, target_name):
     return([data, feature_map])
 
 
-    
-dat = pd.read_csv('../data/adult.data', header=None, 
-                  names = ['age','workclass', 'fnlwgt','education', 'marital', 
+
+dat = pd.read_csv('../data/adult.data', header=None,
+                  names = ['age','workclass', 'fnlwgt','education', 'marital',
                   'occupation', 'relationship','race','sex','capitalgain',
                   'capitalloss','hrsweek','country','income_class'])
 testdat = pd.read_csv('../data/adult.test', header=None, skiprows=1,
-                      names = ['age','workclass', 'fnlwgt','education', 'marital', 
+                      names = ['age','workclass', 'fnlwgt','education', 'marital',
                   'occupation', 'relationship','race','sex','capitalgain',
                   'capitalloss','hrsweek','country','income_class'])
 testdat['income_class'] = pd.Series([x.replace('.','') for x in testdat['income_class']])
@@ -100,10 +100,10 @@ testdat = testdat.drop(['country'], axis=1)
 mydtrain, fmap = preprocess(dat, 'income_class')
 mydtest, fmap = preprocess(testdat,'income_class')
 
-param = {'max_depth':6, 
+param = {'max_depth':6,
          'min_samples_leaf': 10,
 'eta':1, # Learning rate
-'silent':1, 
+'silent':1,
 'objective':'binary:logistic' ,
 'num_round': 20}
 
@@ -130,10 +130,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 breast_train, breast_test = xgb.DMatrix(X_train, label=y_train), xgb.DMatrix(X_test,label=y_test)
 
-param = {'max_depth':6, 
+param = {'max_depth':6,
          'min_samples_leaf': 10,
 'eta':1, # Learning rate
-'silent':1, 
+'silent':1,
 'objective':'binary:logistic' ,
 'num_round': 10}
 
@@ -145,7 +145,7 @@ for i in range(10):
     print(accuracy_score(y_test, breast_bst.predict(breast_test, ntree_limit=i+1)>0.5))
 
 #==============================================================================
-# Multiclass classification 
+# Multiclass classification
 #==============================================================================
 
 # Download dermatology data from web
@@ -235,4 +235,3 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 clf = xgb.XGBClassifier()
 clf.fit(X_train, y_train, early_stopping_rounds=10, eval_metric="auc",
         eval_set=[(X_test, y_test)])
-
