@@ -457,33 +457,56 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Take a weak learner (one slightly better than random guessing)</li>
 <li>Turn it into a strong learner (one with arbitrary accuracy)</li>
 </ul>
-</section><section id="the-conceptual-implementation" class="slide level2">
-<h2>The conceptual implementation</h2>
+</section><section id="the-learning-challenge" class="slide level2">
+<h2>The learning challenge</h2>
 <ul>
-<li>Fit a learner to your data</li>
-<li>Evaluate the residuals</li>
-<li>Fit a learner to the residuals</li>
-<li>Grab the predictions from this model (which should correct the errors from the first model)</li>
-<li>Add the predictions to form your new predictions</li>
-<li>Repeat M times</li>
+<li>For a target <em>y</em> and a predictor <em>p(x)</em>, define a loss function <span class="math inline">\(L(y,p(x))\)</span>.</li>
+<li>You want to find the predictor <span class="math inline">\(p(x)\)</span> that minimizes <span class="math inline">\(L(y,p(x))\)</span></li>
+<li>The optimal predictor <span class="math inline">\(p(x)\)</span> will be “close” to the observed data <em>y</em> in the sense of minimizing this loss.</li>
 </ul>
-</section><section id="the-conceptual-implementation-1" class="slide level2">
-<h2>The conceptual implementation</h2>
-<p><span class="math display">\[ F(x) = \sum_{i=1}^M F_i(x) \]</span></p>
+</section><section id="concept-is-nothing-new" class="slide level2">
+<h2>Concept is nothing new</h2>
+<ul>
+<li>Take <span class="math inline">\(L(y, p(x)) = (y - p(x))^2\)</span></li>
+<li>Constrain the predictor to the form <span class="math inline">\(p(x) = \beta_0 + \beta_1 x_1 + \beta_2x_2\)</span></li>
+<li>The optimal predictor is the usual linear regression line.</li>
+<li>You’re finding <span class="math inline">\(\beta\)</span>’s to mininize <span class="math display">\[\sum_{i=1}^n (y_i - \beta_0 -\beta_1x_{1i} - \beta_2 x_{2i} - \beta_3x_{3i})^2\]</span></li>
+<li>This has a <strong>known, closed-form solution</strong>.</li>
+</ul>
+</section><section id="boosting-1" class="slide level2">
+<h2>Boosting</h2>
+<ul>
+<li>Start with a predictor <span class="math inline">\(p_0(x)\)</span>.</li>
+<li>If we could, we would find a function <span class="math inline">\(h(x)\)</span> so that <span class="math display">\[p_0(x) + h(x) = y\]</span></li>
+<li>This would mean that <span class="math inline">\(h(x) = y - p_0(x)\)</span>, i.e., the residual.</li>
+<li>We could estimate <span class="math inline">\(h(x)\)</span> by some means to get <span class="math inline">\(\hat{h}(x)\)</span></li>
+<li>We could then take <span class="math inline">\(p_1(x) = p_0(x) + \hat{h}(x)\)</span> to be our next candidate predictor</li>
+<li>Repeat this process</li>
+<li>At each stage, you’re <strong>boosting</strong> your previous predictor in some way to improve it.</li>
+</ul>
+</section><section id="why-gradient-boosting" class="slide level2">
+<h2>Why gradient boosting?</h2>
+<ul>
+<li>Recognize that <span class="math inline">\(y-p\)</span> is just the gradient of <span class="math inline">\(\frac{1}{2}(y-p)^2\)</span>, which is the squared error loss.</li>
+<li>So to generalize this, we could choose a different loss function, and find <span class="math inline">\(h(x)\)</span> to estimate the gradient at that point.</li>
+</ul>
+</section><section id="conceptually" class="slide level2">
+<h2>Conceptually</h2>
 <ul>
 <li>Once we fit a learner, we keep its prediction</li>
 <li>We want to improve the prediction by seeing where it went wrong</li>
 <li>Predict the degree to which it went wrong</li>
 <li>Correct the original predictions</li>
 </ul>
-</section><section id="the-conceptual-model" class="slide level2">
-<h2>The conceptual model</h2>
+</section><section id="the-algorithm" class="slide level2">
+<h2>The algorithm</h2>
 <ul>
-<li><span class="math inline">\(h(x)\)</span> is a weak learner</li>
-<li>Fit <span class="math inline">\(F_1(x)\)</span> to your data</li>
-<li><span class="math inline">\(F_2(x) = F_1(x) + h(x)\)</span></li>
-<li><span class="math inline">\(F_3(x) = F_2(x) + h(x)\)</span></li>
-<li>and so on, for <em>M</em> iterations</li>
+<li>Start with a training data <span class="math inline">\((x_i, y_i)\)</span> and a differnetiable loss function <span class="math inline">\(L(y,p)\)</span></li>
+<li>Start with a simple model where the prediction <span class="math inline">\(p(x) = \bar{y}\)</span></li>
+<li><p>For m = 1 to M</p></li>
+<li>Compute the <em>pseudo-residuals</em> which is the negative gradient of the loss function: <span class="math inline">\(r_i = \left.\frac{\partial L(y,p)}{\partial p}\right|_{p=p_m(x)}\)</span></li>
+<li>Fit a model <span class="math inline">\(h(x)\)</span> to <span class="math inline">\(r_i\)</span></li>
+<li><p>Update the model as <span class="math inline">\(p_{m+1}(x) = p_m(x) + \lambda h(x)\)</span> where <span class="math inline">\(\lambda\)</span> is the <em>learning rate</em></p></li>
 </ul>
 </section><section id="lets-see-how-this-might-work" class="slide level2">
 <h2>Let’s see how this might work</h2>
@@ -506,10 +529,10 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section><section id="gradient-descent-5" class="slide level2">
 <h2>Gradient descent</h2>
 <ul>
-<li>Sometimes a “learning rate” <span class="math inline">\(\alpha\)</span> is added, so you don’t move the whole way</li>
-<li><span class="math inline">\(F_k(x) = F_{k-1}(x) + \alpha h(x)\)</span></li>
+<li>Sometimes the “learning rate” <span class="math inline">\(\lambda\)</span> is added, so you don’t move the whole way</li>
+<li><span class="math inline">\(F_k(x) = F_{k-1}(x) + \lambda h(x)\)</span></li>
 <li><p>This is to slow things down</p></li>
-<li><p>If <span class="math inline">\(\alpha\)</span> is small and <span class="math inline">\(M\)</span> is large, then you will get to minimum.</p></li>
+<li><p>If <span class="math inline">\(\lambda\)</span> is small and <span class="math inline">\(M\)</span> is large, then you will get to minimum.</p></li>
 </ul>
 </section></section>
 <section><section id="loss-functions" class="titleslide slide level1"><h1>Loss functions</h1></section><section id="gradient-descent-6" class="slide level2">

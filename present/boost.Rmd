@@ -20,33 +20,56 @@ output:
 + Take a weak learner (one slightly better than random guessing)
 + Turn it into a strong learner (one with arbitrary accuracy)
 
-## The conceptual implementation
+## The learning challenge
 
-+ Fit a learner to your data
-+ Evaluate the residuals
-+ Fit a learner to the residuals 
-+ Grab the predictions from this model (which should correct the errors from the first model)
-+ Add the predictions to form your new predictions
-+ Repeat M times
++ For a target _y_ and a predictor _p(x)_, define a loss function $L(y,p(x))$. 
++ You want to find the predictor $p(x)$ that minimizes $L(y,p(x))$
++ The optimal predictor $p(x)$ will be "close" to the observed data _y_ in the sense of minimizing this loss.
 
-## The conceptual implementation
+## Concept is nothing new
+
++ Take $L(y, p(x)) = (y - p(x))^2$
++ Constrain the predictor to the form $p(x) = \beta_0 + \beta_1 x_1 + \beta_2x_2$
++ The optimal predictor is the usual linear regression line. 
++ You're finding $\beta$'s to mininize $$\sum_{i=1}^n (y_i - \beta_0 -\beta_1x_{1i} - \beta_2 x_{2i} - \beta_3x_{3i})^2$$
++ This has a __known, closed-form solution__. 
+
+## Boosting
+
++ Start with a predictor $p_0(x)$.
++ If we could, we would find a function $h(x)$ so that $$p_0(x) + h(x) = y$$
++ This would mean that $h(x) = y - p_0(x)$, i.e., the residual. 
++ We could estimate $h(x)$ by some means to get $\hat{h}(x)$
++ We could then take $p_1(x) = p_0(x) + \hat{h}(x)$ to be our next candidate predictor
++ Repeat this process
++ At each stage, you're __boosting__ your previous predictor in some way to improve it.
+
+## Why gradient boosting?
+
++ Recognize that $y-p$ is just the gradient of $\frac{1}{2}(y-p)^2$, which is the squared error loss. 
++ So to generalize this, we could choose a different loss function, and find $h(x)$ to estimate the gradient at that point.
 
 
-$$ F(x) = \sum_{i=1}^M F_i(x) $$
+
+
+## Conceptually
 
 + Once we fit a learner, we keep its prediction
 + We want to improve the prediction by seeing where it went wrong
 + Predict the degree to which it went wrong
 + Correct the original predictions
 
-## The conceptual model
+## The algorithm
 
-+ $h(x)$ is a weak learner
-+ Fit $F_1(x)$ to your data
-+ $F_2(x) = F_1(x) + h(x)$
-+ $F_3(x) = F_2(x) + h(x)$
-+ and so on, for _M_ iterations
-  
++ Start with a training data $(x_i, y_i)$ and a differnetiable loss function $L(y,p)$
++ Start with a simple model where the prediction $p(x) = \bar{y}$
++ For m = 1 to M
+    
+  + Compute the _pseudo-residuals_ which is the negative gradient of the loss function: 
+  $r_i = \left.\frac{\partial L(y,p)}{\partial p}\right|_{p=p_m(x)}$
+  + Fit a model $h(x)$ to $r_i$
+  + Update the model as $p_{m+1}(x) = p_m(x) + \lambda h(x)$ where $\lambda$ is the _learning rate_
+
 ## Let's see how this might work
 
 # Gradient descent
@@ -80,11 +103,11 @@ points(x0,y0, pch=3)
 
 ## Gradient descent
 
-+ Sometimes a "learning rate" $\alpha$ is added, so you don't move the whole way
-+ $F_k(x) = F_{k-1}(x) + \alpha h(x)$
++ Sometimes the "learning rate" $\lambda$ is added, so you don't move the whole way
++ $F_k(x) = F_{k-1}(x) + \lambda h(x)$
 + This is to slow things down
 
-+ If $\alpha$ is small and $M$ is large, then you will get to minimum.
++ If $\lambda$ is small and $M$ is large, then you will get to minimum.
 
 # Loss functions
 
