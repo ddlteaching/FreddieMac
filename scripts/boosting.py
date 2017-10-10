@@ -19,37 +19,37 @@ x = rng.rand(400)
 y = 3*x - 2*x**2 + rng.normal(0,0.2, 400)
 plt.plot(x,y,'.')
 
-
-x = x[:,np.newaxis]
-from sklearn.linear_model import LinearRegression
-
-lrmodel = LinearRegression(fit_intercept=True)
-
-m1 = lrmodel.fit(x,y)
-
-p1 = lrmodel.predict(x)
-
-p = p1
-
-res = y - p1
-
-m2 = lrmodel.fit(x, res, sample_weight = np.abs(res))
-
-p2 = lrmodel.predict(x)
-
-p = p + p2
-
-res2 = y - p
-
-m3 = lrmodel.fit(x, res2, sample_weight = np.abs(res2))
-p3 = lrmodel.predict(x)
-
-
-
-plt.plot(x,y,'.')
-plt.plot(x, p1, '.')
-plt.plot(x, p1+p2,'.')
-plt.plot(x, p1+p2+p3,'.')
+#
+# x = x[:,np.newaxis]
+# from sklearn.linear_model import LinearRegression
+#
+# lrmodel = LinearRegression(fit_intercept=True)
+#
+# m1 = lrmodel.fit(x,y)
+#
+# p1 = lrmodel.predict(x)
+#
+# p = p1
+#
+# res = y - p1
+#
+# m2 = lrmodel.fit(x, res, sample_weight = np.abs(res))
+#
+# p2 = lrmodel.predict(x)
+#
+# p = p + p2
+#
+# res2 = y - p
+#
+# m3 = lrmodel.fit(x, res2, sample_weight = np.abs(res2))
+# p3 = lrmodel.predict(x)
+#
+#
+#
+# plt.plot(x,y,'.')
+# plt.plot(x, p1, '.')
+# plt.plot(x, p1+p2,'.')
+# plt.plot(x, p1+p2+p3,'.')
 
 
 from sklearn.tree import DecisionTreeRegressor

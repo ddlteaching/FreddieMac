@@ -28,7 +28,7 @@ output: html_document
 6. Deconstructing a Random Forest ([link](../scripts/RFDeconstructed.py))
 7. Tuning a Random Forest ([link](../scripts/RFTuning.py))
 8. Fitting a Random Forest ([link](../scripts/RFClassReg.py))
-9. Boosting from scratch ([link](../scripts/boost.py))
+9. Boosting from scratch ([link](../scripts/boosting.py))
 8. Stacking ([link](../scripts/stacking2.py))
 
 
