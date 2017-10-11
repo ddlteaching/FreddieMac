@@ -16,6 +16,7 @@ output: html_document
 5. The Bias-Variance Tradeoff (<a href = "../present/BiasVariance.html" target = "_blank">link</a>)
 6. Fitting Random Forests (<a href = "../present/RFFit.html" target="_blank">link</a>)
 7. Boosting (<a href="../present/boost.html" target="_blank">link</a>)
+8. XGBoost (<a href="../present/xgboost.html" target="_blank">link</a>)
 7. Stacking (<a href="../present/stacking.html" target = "_blank">link</a>)
 
 ## Python Scripts
@@ -27,8 +28,9 @@ output: html_document
 5. Building bagged trees ([link](../scripts/RFIntro.py))([Day 4 script (truncated)](cohort3day4.py))
 6. Deconstructing a Random Forest ([link](../scripts/RFDeconstructed.py))
 7. Tuning a Random Forest ([link](../scripts/RFTuning.py))
-8. Fitting a Random Forest ([link](../scripts/RFClassReg.py))
-9. Boosting from scratch ([link](../scripts/boosting.py))
+8. Fitting a Random Forest ([link](../scripts/RFClassReg.py))([In-class script](cohort3day5.py))
+9. Boosting from scratch ([link](../scripts/boosting.py))([In-class script](cohort3day6.py))
+10. XGBoost ([link](../scripts/xgboost.py))
 8. Stacking ([link](../scripts/stacking2.py))
 
 

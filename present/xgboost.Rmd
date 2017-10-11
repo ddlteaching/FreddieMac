@@ -1,0 +1,164 @@
+---
+title: "XGBoost"
+author: "Abhijit Dasgupta"
+output: 
+  revealjs::revealjs_presentation:
+    theme: solarized
+    highlights: pygments
+    transition: none
+    slide_level: 2
+    center: true
+---
+
+<style type="text/css">
+  .reveal p {
+    text-align: left;
+  }
+  .reveal ul {
+    display: block;
+  }
+  .reveal ol {
+    display: block;
+  }  
+  .midcenter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+</style>
+
+# Re-visiting optimization
+
+## Regularization
+
+In supervized learning, we should really optimze $$Obs(\Theta) = L(\Theta) + \Omega(\Theta)$$
+
++ $L(\Theta)$ is the loss function (we called this $L(y,p)$ yesterday)
+
+    + Measures how well our model fits the data
+
++ $\Omega(\Theta)$ is the _penalty_ or _regularization_ term
+
+    + Measures complexity of the model
+    
+## Regularization
+
+In supervized learning, we should really optimze $$Obs(\Theta) = L(\Theta) + \Omega(\Theta)$$
+
++ Optimizing $L(\Theta)$ improves prediction, but training the model closer to the training data
+
++ Optimizing $\Omega(\Theta)$ encourages simpler models, with lower variance and higher stability
+
+__This is really the bias-variance trade-off, mathematically__
+
+## Examples of loss functions
+
+From training data, our loss is $L(\Theta) = \sum_{i=1}^n l(y_i,p_i)$.
+
+1. Squared error loss: $l(y_i,p_i) = (y_i-p_i)^2$ 
+2. Logistic loss: $l(y_i, p_i) = y_i\ln(1+e^{-p_i}) + (1-y_i)\ln(1+e^{p_i})$
+
+Regularization: How complicated is our model?
+
+1. L2 norm: $\sum \beta_i^2$ or $\|\beta\|^2$
+2. L_1_ norm: $\sum |\beta_i|$ or $\|\beta\|_1$
+
+## Examples of regularized estimation
+
+Ridge regression: $\sum (y_i - x_i^T\beta)^2 +  \lambda \|\beta\|^2$
+
++ Linear model, square loss, L2 regularization
+
+Logistic regression: $\sum (y_i\ln(1+e^{-x_i^T\beta}) + (1-y_i)\ln(1+e^{x_i^T\beta})) + \lambda \|\beta\|^2$
+
++ Linear model, logistic loss, L2 regularization
+
+# Regression trees in this context
+
+## Model of a tree? 
+
+$$p_i = \sum_{k=1}^K f(x_i),\quad f\in \mathcal{F}$$ where $\mathcal{F}$ is the space of all possible regression trees
+
+Conceptually, think of a regression tree as mapping predictors $x$ to a prediction $p$.
+
+Parameters?
+
++ structure of tree + prediction in leaf
++ Or simply just look at them as functions $\{f_1, f_2, \dots\}$
+
+# Define an objective function and optimize it!!
+
+## 
+
+![](step_fit.png)
+
+## Returning to our objectives
+
+$$Obj(\Theta) =  L(\Theta) + \Omega(\Theta)$$
+
+How do we define $\Omega$?
+
+1. Number of leaves
+2. L2 norm of leaf predictions
+
+## Optimizing decision trees
+
+1. Split by information gain -> training loss
+2. Pruning -> regularization by number of nodes
+3. Max depth -> constraint on function space
+5. Leaf node size -> L2 regularization of leaf predictions
+
+## Learning
+
+Start from constant prediction, add tree at each iteration
+
+$p_i^{(0)} = 0$
+
+$p_i^{(k)} = p_i^{(k-1)} + f_k(x_i)$
+
+Find $f_k$ at each stage by optimizing $Obj(\Theta)$
+
+$$Obj^{(k)} = \sum (L(y_i, p_i^{(k-1)}) + g_i f_k(x_i) + h_i f^2(x_i)) + \Omega(f_k)$$
+
+where $g_i$ and $h_i$ are the first and second derivatives of $L(y,p)$ with respect to $p$
+
+## Learning
+
+The important part of this is 
+
+$$\sum (g_if_k(x_i) + h_if_k^2(x_i)) + \Omega(f_k)$$
+
+Depends only on $g_i$, $h_i$ and $f_k$
+
+Define $$\Omega(f_k) = \gamma T + \frac{1}{2}\lambda\sum_{i=1}^T w_i^2$$
+
++ $T$ is number of leaves
++ $w_i$ is the prediction score from leaf $i$
++ Second term is L2 regularization of the leaf predictions
+
+## Learning
+
+Let $G_j = \sum_{i \in I_j} g_i$ and $H_j = \sum_{i\in I_j} h_i$ where $I_j$ are indices of observations in leaf $j$
+
+Turns out optimal solution is 
+$$ w_j^* = -\frac{G_j}{H_j+\lambda}$$
+
+which makes optimal objective function
+
+$$ Obj = -\frac{1}{2} \sum_{j=1}^T \frac{G_j^2}{H_j+\lambda}+\gamma T$$
+
+## Split based on maximizing Gain
+
+$$ Gain = \frac{1}{2}\left[\frac{G_L^2}{H_L+\lambda} + \frac{G_R^2}{H_R+\lambda} - \frac{G_L^2+G_R^2}{H_L+H_R+\lambda} \right] - \gamma$$
+
+## Changes in XGBoost from standard Gradient Boosted Trees
+
+1. Optimization based on specified loss function and its gradient and hessian
+2. Regularization baked in to the process
+3. Splitting rule also based on gradient, hessian of loss function as well as regularization parameters
+4. Scalable and parallelizable
+
+## Reference
+
+[Introduction to Boosted Trees](https://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf) by Tianqi Chen

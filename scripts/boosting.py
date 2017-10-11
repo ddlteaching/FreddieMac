@@ -20,7 +20,7 @@ import seaborn as sns
 rng = np.random.RandomState(43)
 ns = 100
 x = np.linspace(0, 10, ns)
-y = 3  + 8*x + + 5*x**2 - 7 * x**3+np.random.normal(0, 1, ns)
+y = 3  + 8*x + + 5*x**2 - 2 * x**3+np.random.normal(0, 1, ns)
 
 a,b = 0,0
 learning_rate = 0.0001
@@ -81,8 +81,8 @@ plt.scatter(x,p, c='red')
 
 from sklearn.metrics import mean_squared_error
 mean_squared_error(y, p1)
-mean_squared_error(y, p1+p2)
-mean_squared_error(y, p1+p2+p3)
+mean_squared_error(y, p2)
+mean_squared_error(y, p3)
 
 p = np.zeros_like(y)
 for i in range(10):
@@ -90,6 +90,8 @@ for i in range(10):
     tr = dt.fit(x, res)
     p = p + tr.predict(x)
     print(mean_squared_error(y,p))
+
+
 
 #==============================================================================
 # Binary data
@@ -100,6 +102,10 @@ breast  = load_breast_cancer()
 X = breast['data']
 y = breast['target']
 
+#' The logistic loss function is defined to be
+#' $$ L(y, p) = \ln (1 + e^{-yp})$$
+#' It's gradient function is therefore
+#' $$ \grad L(y,p) = -y + e^{-yp}/(1+e^{-yp})$$
 def grad(x,y):
     return(-y * np.exp(-y*x)/(1+np.exp(-y*x)))
 
