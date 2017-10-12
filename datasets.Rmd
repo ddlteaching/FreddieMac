@@ -24,3 +24,4 @@ output: html_document
 7. Freddie Mac sample data ([link](data/for_training_small.xlsx))
 8. Allstate data ([training](data/allstate_train.csv), [test](data/allstate_test.csv))
 9. King County, WA Housing data ([link](data/kc_house_data.csv))
+10. Lupus data ([link](data/lupus.csv))
