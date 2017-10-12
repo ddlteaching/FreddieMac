@@ -18,7 +18,7 @@ output: html_document
 7. Boosting (<a href = "../present/boost.html" target="_blank">link</a>)
 8. XGBoost (<a href="../present/xgboost.html" target="_blank">link</a>)
 7. Stacking (<a href="../present/stacking.html" target = "_blank">link</a>)
-
+8. Effect sizes and interpretability (<a href="http://webbedfeet.github.io/Dartmouth2" target='_blank'>link</a>)
 
 ## Python Scripts
 
@@ -32,7 +32,8 @@ output: html_document
 8. Fitting a Random Forest ([link](../scripts/RFClassReg.py))([In-class script](cohort4day5.py))
 9. Boosting from scratch ([link](../scripts/boosting.py))([In-class script](cohort4day6.py))
 10. XGBoost ([link](../scripts/xgboost.py))
-8. Stacking ([link](../scripts/stacking2.py))
+8. Stacking ([link](../scripts/stacking.py))
+11. A data example ([link](../scripts/examples.py))
 
 
 ## Resources

@@ -160,7 +160,7 @@ for n in range(100):
     r2.append(r2_score(y_test, p))
 
 plt.plot(range(100),mse)
-gbr.set_params(n_estimators=50, warm_start=False)
+gbr.set_params(n_estimators=40, warm_start=False)
 gbr.fit(X_train, y_train)
 plt.plot(X_test, y_test, 'b.', X_test, gbr.predict(X_test),'r.')
 rng = np.random.RandomState(30)

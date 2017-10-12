@@ -12,6 +12,7 @@ import numpy as np
 import sklearn
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 %matplotlib inline
 
 #' ## Gradient descent
@@ -106,21 +107,27 @@ y = breast['target']
 #' $$ L(y, p) = \ln (1 + e^{-yp})$$
 #' It's gradient function is therefore
 #' $$ \grad L(y,p) = -y + e^{-yp}/(1+e^{-yp})$$
-def grad(x,y):
-    return(-y * np.exp(-y*x)/(1+np.exp(-y*x)))
+def loss_logistic(y, p):
+    return(np.log(1 + np.exp(-y * p)))
+def grad(y,p):
+    return(-y * np.exp(-y*p)/(1+np.exp(-y*p)))
 
 dt1 = DecisionTreeRegressor(min_samples_leaf=5)
 
-mod1 = dt1.fit(X,y)
+p = np.ones(len(y))*0.5
+learning_rate = 0.0001
+res1 = grad(y, p)
+mod1 = dt1.fit(X,res1)
 p1 = dt1.predict(X)
-
-res1 = grad(y, p1)
+pd.Series(p+p1).describe()
+p = p+learning_rate*p1
+res1 = grad(y, p)
 
 mod2=  dt1.fit(X,res1)
 p2 = mod2.predict(X)
-
-p = p1+p2
-
+pd.Series(p2).describe()
+p = p+learning_rate*p2
+pd.Series(p).describe()
 
 from sklearn.metrics import accuracy_score
 
