@@ -19,6 +19,8 @@ output: html_document
 8. XGBoost (<a href="../present/xgboost.html" target="_blank">link</a>)
 7. Stacking (<a href="../present/stacking.html" target = "_blank">link</a>)
 8. Effect sizes and interpretability (<a href="http://webbedfeet.github.io/Dartmouth2" target='_blank'>link</a>)
+9. Some possibilities (<a href="http://webbedfeet.github.io/Dartmouth3" target="_blank">link</a>)
+
 
 ## Python Scripts
 
