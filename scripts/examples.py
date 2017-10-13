@@ -12,14 +12,11 @@ os.chdir('/Users/abhijit/ARAASTAT/Teaching/FreddieMacFinal/data')
 
 lupus = pd.read_csv('lupus.csv')
 lupus.head()
-lupus['lupus'].value_counts()
+lupus['ventilator'].value_counts()
 lupus.columns
 lupus.shape
-dat = lupus.loc[:,['age','male','dead','lupus','ventilator']]
-dat_vent= dat[dat['ventilator']==1]
-dat_novent = dat[dat['ventilator']==0]
 
-rf = RandomForestRegressor(n_estimators=500)
+rf = RandomForestRegressor(n_estimators=200)
 rf_vent = rf.fit(dat_vent.drop('dead', axis=1),dat_vent['dead'])
 rf_novent = rf.fit(dat_novent.drop('dead', axis=1), dat_novent['dead'])
 
@@ -44,3 +41,9 @@ pd.Series(eff_vent).describe()
 
 dat1 = dat_vent.append(dat_novent)
 plt.scatter(dat1['age'], eff_vent)
+
+
+xr = xgb.XGBRegressor().fit(dat.drop('dead', axis=1), dat['dead'])
+p = xr.predict(dat.drop('dead', axis=1))
+np.mean(p[dat['ventilator']==1])
+np.mean(p[dat['ventilator']==0])

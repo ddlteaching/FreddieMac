@@ -79,9 +79,6 @@ dat_full = dat.append(testdat)
 X = pd.get_dummies(dat_full.iloc[:,:-1])
 y = le.fit_transform(dat_full['income_class'])
 
-
-
-
 X_train,y_train = X.iloc[:dat.shape[0],:], y[:dat.shape[0]]
 X_test, y_test = X.iloc[dat.shape[0]:,:], y[dat.shape[0]:]
 
@@ -152,6 +149,7 @@ plt.savefig('../present/LossFns.png', dpi=150)
 
 from sklearn.calibration import calibration_curve
 
+p_class_prob = rf_class.predict_proba(X_test)
 c_class = calibration_curve(y_test, p_class_prob, 10)
 c_reg = calibration_curve(y_test, p_reg, 10)
 

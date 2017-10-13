@@ -261,7 +261,7 @@ clf.fit(X_train, y_train, early_stopping_rounds=10, eval_metric="auc",
 #####################################################################
 
 ## Early stopping
-
+from sklearn.preprocessing import LabelEncoder
 def preprocess(D, target_name):
     X, y = D.drop(target_name, axis=1), D[target_name]
     X = pd.get_dummies(X)
@@ -274,11 +274,11 @@ def preprocess(D, target_name):
     return([data, feature_map])
 
 dat = pd.read_csv('adult.data', header=None,
-                  names = ['age','workclass', 'fnlwgt','education', 'marital',
+                  names = ['age','workclass', 'fnlwgt','education', 'edyr','marital',
                   'occupation', 'relationship','race','sex','capitalgain',
                   'capitalloss','hrsweek','country','income_class'])
 testdat = pd.read_csv('adult.test', header=None, skiprows=1,
-                      names = ['age','workclass', 'fnlwgt','education', 'marital',
+                      names = ['age','workclass', 'fnlwgt','education', 'edyr','marital',
                   'occupation', 'relationship','race','sex','capitalgain',
                   'capitalloss','hrsweek','country','income_class'])
 testdat['income_class'] = pd.Series([x.replace('.','') for x in testdat['income_class']])

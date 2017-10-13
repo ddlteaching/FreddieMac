@@ -14,6 +14,8 @@ import sklearn
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
 %matplotlib inline
 
 sns.set_style('darkgrid')
@@ -23,10 +25,13 @@ from sklearn.model_selection import train_test_split
 from collections import defaultdict
 
 breast = load_breast_cancer()
+rng = np.random.RandomState(50)
 X, y = breast['data'], breast['target']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3)
 
 models = [RandomForestClassifier(n_estimators=200, max_features=n) for n in range(2,16,2)]
+models2 = [RandomForestClassifier(n_estimators=200), KNeighborsClassifier(), LogisticRegression()]
+
 models[0].get_params()['max_features']
 from sklearn.model_selection import cross_val_predict
 
@@ -34,6 +39,7 @@ predictions = defaultdict(list)
 predictions_test = defaultdict(list)
 preds_class = defaultdict(list)
 
+rng = np.random.RandomState(50)
 for m in models:
     m.fit(X_train, y_train)
     p = cross_val_predict(m, X_train, y_train, cv=5, method='predict_proba')[:,1]
@@ -54,3 +60,27 @@ for k in predictions_test:
     print(k, "{0:.4f}".format(brier_score_loss(y_test, predictions_test[k])))
 
 "{0:.4f}".format(brier_score_loss(y_test, p))
+
+rng = np.random.RandomState(50)
+predictions = defaultdict(list)
+predictions_test = defaultdict(list)
+for m in models2:
+    m.fit(X_train, y_train)
+    p = cross_val_predict(m, X_train, y_train, cv=5, method='predict_proba')[:,1]
+    n = str(type(m)).split('.')[-1]
+    predictions[n] = p
+    predictions_test[n] = m.predict_proba(X_test)[:,1]
+    #preds_class[n] = m.predict(X_test)
+
+for k in predictions_test:
+    print(brier_score_loss(y_test, predictions_test[k]))
+
+
+X_train_new = pd.DataFrame(predictions).values
+X_test_new = pd.DataFrame(predictions_test).values
+
+clf2 = RandomForestClassifier(n_estimators=200, random_state=5)
+clf2.fit(X_train_new, y_train)
+p = clf2.predict_proba(X_test_new)[:,1]
+
+brier_score_loss(y_test, p)

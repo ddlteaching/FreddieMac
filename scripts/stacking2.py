@@ -111,4 +111,3 @@ np.sqrt(mean_squared_error(y_test, preds2_b))
 ## Ensemble average
 preds1_c = metadf_test.mean(axis=1)
 np.sqrt(mean_squared_error(y_test, preds1_c))
-
