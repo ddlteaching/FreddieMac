@@ -6,3 +6,8 @@
 _site/*
 *cache
 .DS_Store
+site_libs/*
+*.aux
+*.log
+*.js
+Lectures/Cohort1/.ipynb_checkpoints/*
