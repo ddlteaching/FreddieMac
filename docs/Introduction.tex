@@ -1,0 +1,468 @@
+%%
+% Copyright (c) 2017, Pascal Wagler;  
+% Copyright (c) 2014--2017, John MacFarlane
+% 
+% All rights reserved.
+% 
+% Redistribution and use in source and binary forms, with or without 
+% modification, are permitted provided that the following conditions 
+% are met:
+% 
+% - Redistributions of source code must retain the above copyright 
+% notice, this list of conditions and the following disclaimer.
+% 
+% - Redistributions in binary form must reproduce the above copyright 
+% notice, this list of conditions and the following disclaimer in the 
+% documentation and/or other materials provided with the distribution.
+% 
+% - Neither the name of John MacFarlane nor the names of other 
+% contributors may be used to endorse or promote products derived 
+% from this software without specific prior written permission.
+% 
+% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+% "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
+% LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
+% FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
+% COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+% INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+% BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+% CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
+% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
+% ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+% POSSIBILITY OF SUCH DAMAGE.
+%%
+
+%%
+% For usage information and examples visit the GitHub page of this template:
+% https://github.com/Wandmalfarbe/pandoc-latex-template
+%%
+
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[a4paper,]{scrartcl}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Machine Learning with Python},
+            pdfauthor={Abhijit DasGupta},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% Make use of float-package and set default placement for figures to H
+\usepackage{float}
+\floatplacement{figure}{H}
+
+
+\title{Machine Learning with Python}
+\author{Abhijit DasGupta}
+\date{October 8, 2017}
+
+
+
+
+
+%%
+%% added
+%%
+
+%
+% No language specified? take American English.
+%
+
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=english]{babel}
+\else
+  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\fi
+
+
+%
+% colors
+%
+\usepackage[dvipsnames,svgnames*,x11names*,table]{xcolor}
+
+%
+% listing colors
+%
+\definecolor{listing-background}{HTML}{F7F7F7}
+\definecolor{listing-rule}{HTML}{B3B2B3}
+\definecolor{listing-numbers}{HTML}{B3B2B3}
+\definecolor{listing-text-color}{HTML}{000000}
+\definecolor{listing-keyword}{HTML}{435489}
+\definecolor{listing-identifier}{HTML}{435489}
+\definecolor{listing-string}{HTML}{00999A}
+\definecolor{listing-comment}{HTML}{8E8E8E}
+\definecolor{listing-javadoc-comment}{HTML}{006CA9}
+
+%\definecolor{listing-background}{rgb}{0.97,0.97,0.97}
+%\definecolor{listing-rule}{HTML}{B3B2B3}
+%\definecolor{listing-numbers}{HTML}{B3B2B3}
+%\definecolor{listing-text-color}{HTML}{000000}
+%\definecolor{listing-keyword}{HTML}{D8006B}
+%\definecolor{listing-identifier}{HTML}{000000}
+%\definecolor{listing-string}{HTML}{006CA9}
+%\definecolor{listing-comment}{rgb}{0.25,0.5,0.35}
+%\definecolor{listing-javadoc-comment}{HTML}{006CA9}
+
+%
+% for the background color of the title page
+%
+
+%
+% TOC depth and 
+% section numbering depth
+%
+\setcounter{tocdepth}{3}
+
+%
+% line spacing
+%
+\usepackage{setspace}
+\setstretch{1.2}
+
+%
+% break urls
+%
+\PassOptionsToPackage{hyphens}{url}
+
+%
+% When using babel or polyglossia with biblatex, loading csquotes is recommended 
+% to ensure that quoted texts are typeset according to the rules of your main language.
+%
+\usepackage{csquotes}
+
+%
+% captions
+%
+\usepackage[font={small,it}]{caption}
+\newcommand{\imglabel}[1]{\textbf{\textit{(#1)}}}
+
+%
+% Source Sans Pro as the de­fault font fam­ily
+% Source Code Pro for monospace text
+%
+% 'default' option sets the default 
+% font family to Source Sans Pro, not \sfdefault.
+%
+\usepackage[default]{sourcesanspro}
+\usepackage{sourcecodepro}
+
+%
+% heading font
+%
+\newcommand*{\heading}{\fontfamily{\sfdefault}\selectfont}
+
+%
+% heading color
+%
+\usepackage{relsize}
+\usepackage{sectsty}
+\definecolor{almostblack}{RGB}{40,40,40}
+\allsectionsfont{\sffamily\color{almostblack}}
+
+%
+% variables for title and author
+%
+\usepackage{titling}
+\title{Machine Learning with Python}
+\author{Abhijit DasGupta}
+
+%
+% environment for boxes
+%
+%\usepackage{framed}
+
+%
+% tables
+%
+
+%
+% remove paragraph indention
+%
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+
+%
+%
+% Listings
+%
+%
+
+
+%
+% header and footer
+%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\lhead{Machine Learning with Python}
+\chead{}
+\rhead{October 8, 2017}
+\lfoot{Abhijit DasGupta}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%
+%% end added
+%%
+
+\begin{document}
+
+%%
+%% begin titlepage
+%%
+
+
+%%
+%% end titlepage
+%%
+
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{Introduction}\label{introduction}
+
+Python is a popular general-purpose computing language. It is an
+open-source language released under a liberal
+\href{https://docs.python.org/3/license.html}{license} that is
+compatible with the
+\href{https://www.gnu.org/licenses/gpl-3.0.en.html}{GPL}.
+
+In recent times, Python has become one of the preferred open-source
+languages for doing data science (along with
+\href{http://www.r-project.org}{R}). This has been driven by the
+development of the \href{http://www.numpy.org}{\texttt{numpy}},
+\href{http://www.scipy.org}{\texttt{scipy}} and
+\href{http://matplotlib.org}{\texttt{matplotlib}} packages in the 90s to
+mimic Matlab, and then development of
+\href{http://pandas.pydata.org}{\texttt{pandas}},
+\href{http://www.statsmodels.org}{\texttt{statsmodels}} and
+\href{http://scikit-learn.org}{\texttt{sckit-learn}} in the 2000s to add
+statistical and machine learning functionality akin to R. This has come
+to be known, along with some other packages, as the
+\href{https://pydata.org/downloads.html}{PyData Stack}.
+
+\subsection{Installing Python}\label{installing-python}
+
+The easiest way to install Python for data science is using the Anaconda
+Python Distribution, provided by
+\href{https://www.anaconda.com/}{Anaconda, Inc.}. This distribution
+bundles together over 400 packages (depending on your operating system)
+useful for data science applications. To install Python:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Download the Anaconda Installer from
+  \href{https://www.anaconda.com/download}{Anaconda} based on your
+  operating system. Currently Python version 3.6 is preferred since the
+  support for Python version 2.7 will cease soon.
+\item
+  Open the installer and install Anaconda
+\end{enumerate}
+
+\begin{quote}
+Note for Mac users: The Mac OS comes with a default Python installation
+that is part of the operating system. Anaconda is installed at a
+different location and doesn't overwrite the system Python. The
+installation changes the default Python to Anaconda, so when you run
+Python from the terminal by typing \texttt{python}, the Anaconda version
+will be used. Optionally you can keep your default system version of
+Python as the default and create an alias in your .bashrc file to access
+the Anaconda version of Python.
+\end{quote}
+
+\subsection{Training}\label{training}
+
+This training will consist of four modules:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \protect\hyperlink{IntroToPython}{Introduction to Python}
+\item
+  \protect\hyperlink{DecisionTrees}{Decision Trees}
+\item
+  \protect\hyperlink{RandomForests}{Bagging and Random Forests}
+\item
+  \protect\hyperlink{XGBoost}{Boosting and XGBoost}
+\end{enumerate}
+
+We will start with an introduction to Python programming for new users
+of Python, to get users up to speed with basic Python syntax for data
+science. This will lead up to using basic \texttt{pandas} for data
+manipulation. Additional Python packages will be introduced in later
+sections. We will introduce selected intermediate Python programming
+concepts with an explanatory note, as needed.
+
+Next, we will introduce
+\href{https://en.wikipedia.org/wiki/Decision_tree_learning}{decision
+trees}, specifically the Classification and Regression trees, or CART.
+We will discuss the conceptual basis of decision trees with binary
+splits. We will then formulate the algorithm and derive a Python program
+to implement decision trees. Next, we will introduce the
+\texttt{scikit-learn} package and its implementation of decision trees.
+We will learn how to train decision trees, score new data to make
+predictions, and tune decision trees for optimal performance.
+
+Ensemble learning is a general method for using multiple learning
+methods to derive a meta-machine that can perform better than the
+original machines. We develop two ensemble machines using decision trees
+as \emph{base learners}, namely, Random Forests and Gradient Boosted
+Machines. The former is based on the general method of \emph{bagging} or
+\emph{bootstrap aggregating} a number of base learners to create an
+improved predictive engine. The latter uses an optimization principle
+called \emph{boosting} which recursively fits base learners to data to
+optimize some loss function or fit criterion. The particular
+implementation of boosting that we will explore is
+\href{http://xgboost.readthedocs.io/en/latest/}{\emph{XGBoost}}, a
+scalable, fast and efficient implementation of gradient boosted trees.
+
+As we proceed with these four modules, we will also introduce various
+important statistical and computational concepts that are relevant to
+machine learning, for example, the bias-variance tradeoff, prediction
+error and its assessment in ensemble models, and others.
+
+\hypertarget{IntroToPython}{\section{Introduction to
+Python}\label{IntroToPython}}
+
+\subsection{Base Python}\label{base-python}
+
+Python works as a calculator
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\OperatorTok{+}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{4}\OperatorTok{*}\DecValTok{6}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+24
+\end{verbatim}
+
+More generally, we can assign values to \emph{variables}. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \StringTok{'123'}
+\NormalTok{b }\OperatorTok{=} \DecValTok{123}
+\NormalTok{c }\OperatorTok{=} \FloatTok{123.0}
+\end{Highlighting}
+\end{Shaded}
+
+Each of a, b and c are of different \emph{types}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(a))}
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(b))}
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(c))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<class 'str'>
+<class 'int'>
+<class 'float'>
+\end{verbatim}
+
+\end{document}

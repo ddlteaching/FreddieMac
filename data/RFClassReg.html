@@ -1,0 +1,1067 @@
+
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/LaTeX", "output/HTML-CSS"],
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+</script>
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<style>
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(http://fonts.gstatic.com/s/raleway/v9/-_Ctzj9b56b8RgXW8FArifk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), url(http://fonts.gstatic.com/s/raleway/v9/0dTEPzkLWceF7z0koJaX1A.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(http://fonts.gstatic.com/s/raleway/v9/xkvoNo9fC8O2RDydKj12b_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+}
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 1em 40px;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: bold;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+
+
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/29/2014
+*/
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+@media (min-width: 400px) {
+  .container {
+    width: 85%;
+    padding: 0; }
+}
+@media (min-width: 550px) {
+  .container {
+    width: 80%; }
+  .column,
+  .columns {
+    margin-left: 4%; }
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0; }
+
+  .one.column,
+  .one.columns                    { width: 4.66666666667%; }
+  .two.columns                    { width: 13.3333333333%; }
+  .three.columns                  { width: 22%;            }
+  .four.columns                   { width: 30.6666666667%; }
+  .five.columns                   { width: 39.3333333333%; }
+  .six.columns                    { width: 48%;            }
+  .seven.columns                  { width: 56.6666666667%; }
+  .eight.columns                  { width: 65.3333333333%; }
+  .nine.columns                   { width: 74.0%;          }
+  .ten.columns                    { width: 82.6666666667%; }
+  .eleven.columns                 { width: 91.3333333333%; }
+  .twelve.columns                 { width: 100%; margin-left: 0; }
+
+  .one-third.column               { width: 30.6666666667%; }
+  .two-thirds.column              { width: 65.3333333333%; }
+
+  .one-half.column                { width: 48%; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns          { margin-left: 8.66666666667%; }
+  .offset-by-two.column,
+  .offset-by-two.columns          { margin-left: 17.3333333333%; }
+  .offset-by-three.column,
+  .offset-by-three.columns        { margin-left: 26%;            }
+  .offset-by-four.column,
+  .offset-by-four.columns         { margin-left: 34.6666666667%; }
+  .offset-by-five.column,
+  .offset-by-five.columns         { margin-left: 43.3333333333%; }
+  .offset-by-six.column,
+  .offset-by-six.columns          { margin-left: 52%;            }
+  .offset-by-seven.column,
+  .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+  .offset-by-eight.column,
+  .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+  .offset-by-nine.column,
+  .offset-by-nine.columns         { margin-left: 78.0%;          }
+  .offset-by-ten.column,
+  .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns     { margin-left: 52%; }
+
+}
+html {
+  font-size: 62.5%; }
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222; }
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 3.6rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.4rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.2rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.8rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 2.4rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+p {
+  margin-top: 0; }
+a {
+  color: #1EAEDB; }
+a:hover {
+  color: #0FA0CE; }
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0; }
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: #33C3F0;
+  border-color: #33C3F0; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB; }
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box; }
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+ul {
+  list-style: circle inside; }
+ol {
+  list-style: decimal inside; }
+ol, ul {
+  padding-left: 0;
+  margin-top: 0; }
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%; }
+li {
+  margin-bottom: 1rem; }
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; }
+th:first-child,
+td:first-child {
+  padding-left: 0; }
+th:last-child,
+td:last-child {
+  padding-right: 0; }
+button,
+.button {
+  margin-bottom: 1rem; }
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem; }
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 2.5rem; }
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box; }
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box; }
+.u-pull-right {
+  float: right; }
+.u-pull-left {
+  float: left; }
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; }
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+@media (min-width: 400px) {}
+@media (min-width: 550px) {}
+@media (min-width: 750px) {}
+@media (min-width: 1000px) {}
+@media (min-width: 1200px) {}
+
+</style>
+
+<style>
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #888888 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mb { color: #666666 } /* Literal.Number.Bin */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sa { color: #BA2121 } /* Literal.String.Affix */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.dl { color: #BA2121 } /* Literal.String.Delimiter */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.fm { color: #0000FF } /* Name.Function.Magic */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.vm { color: #19177C } /* Name.Variable.Magic */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+
+
+
+
+<style>
+h1.title {margin-top : 20px}
+img {max-width : 100%}
+
+#From nbconvert
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+
+</HEAD>
+<BODY>
+    <div class ="container">
+        <div class = "row">
+            <div class = "col-md-12 twelve columns">
+<h2>Data analysis and modeling with random forests</h2>
+<p>We will go through the steps of a data analysis using a random forest classifier
+to illustrate both the way to go from dataset to predictions, as well as to
+teach some Python concepts.</p>
+<p>First change the directory to move Python to the data</p>
+
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/Users/abhijit/ARAASTAT/Teaching/FreddieMacFinal/data&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>Then import the usual stack of packages</p>
+
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+<p>Read in the data. In this case the dataset only consists of data without a first
+row that contains the column names (or headers). This necessitates the
+<code>header=None</code> option. The test data file also contains some annotation in the
+first row that we don't want to import. This necessitates the <code>skiprows=1</code> option.</p>
+
+<div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;adult.data&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                  <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;workclass&#39;</span><span class="p">,</span> <span class="s1">&#39;fnlwgt&#39;</span><span class="p">,</span><span class="s1">&#39;education&#39;</span><span class="p">,</span> <span class="s1">&#39;marital&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;occupation&#39;</span><span class="p">,</span> <span class="s1">&#39;relationship&#39;</span><span class="p">,</span><span class="s1">&#39;race&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;capitalgain&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;capitalloss&#39;</span><span class="p">,</span><span class="s1">&#39;hrsweek&#39;</span><span class="p">,</span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="s1">&#39;income_class&#39;</span><span class="p">])</span>
+<span class="n">testdat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;adult.test&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;workclass&#39;</span><span class="p">,</span> <span class="s1">&#39;fnlwgt&#39;</span><span class="p">,</span><span class="s1">&#39;education&#39;</span><span class="p">,</span> <span class="s1">&#39;marital&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;occupation&#39;</span><span class="p">,</span> <span class="s1">&#39;relationship&#39;</span><span class="p">,</span><span class="s1">&#39;race&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;capitalgain&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;capitalloss&#39;</span><span class="p">,</span><span class="s1">&#39;hrsweek&#39;</span><span class="p">,</span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="s1">&#39;income_class&#39;</span><span class="p">])</span>
+</pre></div>
+
+<p>Let's take a quick peek at this dataset.</p>
+
+<div class="highlight"><pre><span></span><span class="n">dat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>fnlwgt</th>
+      <th>education</th>
+      <th>marital</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capitalgain</th>
+      <th>capitalloss</th>
+      <th>hrsweek</th>
+      <th>country</th>
+      <th>income_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>39</th>
+      <td>State-gov</td>
+      <td>77516</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Never-married</td>
+      <td>Adm-clerical</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>2174</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Self-emp-not-inc</td>
+      <td>83311</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Private</td>
+      <td>215646</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Divorced</td>
+      <td>Handlers-cleaners</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Private</td>
+      <td>234721</td>
+      <td>11th</td>
+      <td>7</td>
+      <td>Married-civ-spouse</td>
+      <td>Handlers-cleaners</td>
+      <td>Husband</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Private</td>
+      <td>338409</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Married-civ-spouse</td>
+      <td>Prof-specialty</td>
+      <td>Wife</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>Cuba</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Uh oh! It looks like the age data got pushed to the index of the DataFrame.
+Further inspection reveals that in fact, there is one column header missing,
+for the fifth column. That is easily fixed as follows:</p>
+
+<div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;adult.data&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                  <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;workclass&#39;</span><span class="p">,</span> <span class="s1">&#39;fnlwgt&#39;</span><span class="p">,</span><span class="s1">&#39;education&#39;</span><span class="p">,</span> <span class="s1">&#39;edyrs&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;marital&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;occupation&#39;</span><span class="p">,</span> <span class="s1">&#39;relationship&#39;</span><span class="p">,</span><span class="s1">&#39;race&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;capitalgain&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;capitalloss&#39;</span><span class="p">,</span><span class="s1">&#39;hrsweek&#39;</span><span class="p">,</span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="s1">&#39;income_class&#39;</span><span class="p">])</span>
+<span class="n">testdat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;adult.test&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;workclass&#39;</span><span class="p">,</span> <span class="s1">&#39;fnlwgt&#39;</span><span class="p">,</span><span class="s1">&#39;education&#39;</span><span class="p">,</span> <span class="s1">&#39;edyrs&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;marital&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;occupation&#39;</span><span class="p">,</span> <span class="s1">&#39;relationship&#39;</span><span class="p">,</span><span class="s1">&#39;race&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;capitalgain&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;   capitalloss&#39;</span><span class="p">,</span><span class="s1">&#39;hrsweek&#39;</span><span class="p">,</span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="s1">&#39;income_class&#39;</span><span class="p">])</span>
+<span class="n">dat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;income_class&#39;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="n">le</span><span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1">#from sklearn.model_selection import train_test_split</span>
+<span class="c1">#X_train, X_test, y_train, y_test = train_test_split(X, y,</span>
+<span class="c1">#                                                    train_size = .3, random_state=32)</span>
+<span class="c1"># np.sum(y==1)</span>
+<span class="c1"># np.sum(y==0)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">testdat</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">testdat</span><span class="p">[</span><span class="s1">&#39;income_class&#39;</span><span class="p">])</span>
+
+<span class="c1">#==============================================================================</span>
+<span class="c1"># The coding of income_class is different in test and training</span>
+<span class="c1">#==============================================================================</span>
+
+<span class="n">testdat</span><span class="p">[</span><span class="s1">&#39;income_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">testdat</span><span class="p">[</span><span class="s1">&#39;income_class&#39;</span><span class="p">]])</span>
+
+<span class="c1">#==============================================================================</span>
+<span class="c1"># There is a problem with not having same number of levels of a predictor. We&#39;ll</span>
+<span class="c1"># concatenate first, then process, then separate the training and test data</span>
+<span class="c1">#==============================================================================</span>
+
+<span class="n">dat_full</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">testdat</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">dat_full</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dat_full</span><span class="p">[</span><span class="s1">&#39;income_class&#39;</span><span class="p">])</span>
+
+
+
+
+<span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">dat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],:],</span> <span class="n">y</span><span class="p">[:</span><span class="n">dat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:,:],</span> <span class="n">y</span><span class="p">[</span><span class="n">dat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:]</span>
+
+
+
+
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span><span class="p">,</span> <span class="n">KNeighborsRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">brier_score_loss</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
+
+<span class="n">rf_class</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">warm_start</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">oob_score</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">rf_reg</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">warm_start</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">oob_score</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">nboot</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">scores_class</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;oob&#39;</span><span class="p">:[],</span> <span class="s1">&#39;acc&#39;</span><span class="p">:[],</span> <span class="s1">&#39;auc&#39;</span><span class="p">:[],</span> <span class="s1">&#39;precision&#39;</span><span class="p">:[],</span> <span class="s1">&#39;recall&#39;</span><span class="p">:[],</span> <span class="s1">&#39;brier&#39;</span><span class="p">:[],</span> <span class="s1">&#39;f1&#39;</span><span class="p">:[]}</span>
+<span class="n">scores_reg</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;oob&#39;</span><span class="p">:[],</span> <span class="s1">&#39;acc&#39;</span><span class="p">:[],</span> <span class="s1">&#39;auc&#39;</span><span class="p">:[],</span> <span class="s1">&#39;precision&#39;</span><span class="p">:[],</span> <span class="s1">&#39;recall&#39;</span><span class="p">:[],</span> <span class="s1">&#39;brier&#39;</span><span class="p">:[],</span> <span class="s1">&#39;f1&#39;</span><span class="p">:[]}</span>
+
+
+<span class="k">for</span> <span class="n">n_est</span> <span class="ow">in</span> <span class="n">nboot</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n_est</span><span class="p">)</span>
+    <span class="n">rf_class</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">n_est</span><span class="p">)</span>
+    <span class="n">rf_reg</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">n_est</span><span class="p">)</span>
+
+    <span class="n">rf_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">rf_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">p_class</span> <span class="o">=</span> <span class="n">rf_class</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">p_class_prob</span> <span class="o">=</span> <span class="n">rf_class</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">p_reg</span> <span class="o">=</span> <span class="n">rf_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+    <span class="n">scores_class</span><span class="p">[</span><span class="s1">&#39;oob&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rf_class</span><span class="o">.</span><span class="n">oob_score_</span><span class="p">)</span>
+    <span class="n">scores_class</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_class</span><span class="p">))</span>
+    <span class="n">scores_class</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_class_prob</span><span class="p">))</span>
+    <span class="n">scores_class</span><span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_class</span><span class="p">))</span>
+    <span class="n">scores_class</span><span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_class</span><span class="p">))</span>
+    <span class="n">scores_class</span><span class="p">[</span><span class="s1">&#39;brier&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">brier_score_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_class_prob</span><span class="p">))</span>
+    <span class="n">scores_class</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_class</span><span class="p">))</span>
+
+    <span class="n">p_reg_class</span> <span class="o">=</span> <span class="n">p_reg</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+
+    <span class="n">scores_reg</span><span class="p">[</span><span class="s1">&#39;oob&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rf_reg</span><span class="o">.</span><span class="n">oob_score_</span><span class="p">)</span>
+    <span class="n">scores_reg</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_reg_class</span><span class="p">))</span>
+    <span class="n">scores_reg</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_reg</span><span class="p">))</span>
+    <span class="n">scores_reg</span><span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_reg_class</span><span class="p">))</span>
+    <span class="n">scores_reg</span><span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_reg_class</span><span class="p">))</span>
+    <span class="n">scores_reg</span><span class="p">[</span><span class="s1">&#39;brier&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">brier_score_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_reg</span><span class="p">))</span>
+    <span class="n">scores_reg</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_reg_class</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;darkgrid&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">loss</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;acc&#39;</span><span class="p">,</span><span class="s1">&#39;auc&#39;</span><span class="p">,</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span><span class="s1">&#39;recall&#39;</span><span class="p">,</span><span class="s1">&#39;brier&#39;</span><span class="p">,</span><span class="s1">&#39;f1&#39;</span><span class="p">]):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">3</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nboot</span><span class="p">,</span> <span class="n">scores_class</span><span class="p">[</span><span class="n">loss</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Classification&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nboot</span><span class="p">,</span> <span class="n">scores_reg</span><span class="p">[</span><span class="n">loss</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of estimators&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../present/LossFns.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="c1">#==============================================================================</span>
+<span class="c1"># Calibration</span>
+<span class="c1">#==============================================================================</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.calibration</span> <span class="kn">import</span> <span class="n">calibration_curve</span>
+
+<span class="n">c_class</span> <span class="o">=</span> <span class="n">calibration_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_class_prob</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">c_reg</span> <span class="o">=</span> <span class="n">calibration_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">p_reg</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Perfect calibration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_class</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c_class</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;Classification&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_reg</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mean predicted value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction positive&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Calibration curves&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../present/calibration.png&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">p_class_prob</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Classification&#39;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">p_reg</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">)</span>
+</pre></div>
+
+<div class="highlight"><pre>
+50
+</pre></div>
+
+<div class="highlight"><pre>
+<span class="ansi-red-
+fg">---------------------------------------------------------------------------</span><span
+class="ansi-red-fg">ValueError</span>
+Traceback (most recent call last)<span class="ansi-green-
+fg">&lt;ipython-input-1-d6b05ed5841a&gt;</span> in <span class="ansi-
+cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     70</span>
+rf_reg<span class="ansi-blue-fg">.</span>set_params<span class="ansi-
+blue-fg">(</span>n_estimators <span class="ansi-blue-fg">=</span>
+n_est<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     71</span>
+<span class="ansi-green-fg">---&gt; 72</span><span class="ansi-red-
+fg">     </span>rf_class<span class="ansi-blue-fg">.</span>fit<span
+class="ansi-blue-fg">(</span>X<span class="ansi-blue-
+fg">,</span>y<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     73</span>
+rf_reg<span class="ansi-blue-fg">.</span>fit<span class="ansi-blue-
+fg">(</span>X<span class="ansi-blue-fg">,</span> y<span class="ansi-
+blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     74</span>
+<span class="ansi-green-
+fg">/Users/abhijit/anaconda/lib/python3.6/site-
+packages/sklearn/ensemble/forest.py</span> in <span class="ansi-cyan-
+fg">fit</span><span class="ansi-blue-fg">(self, X, y,
+sample_weight)</span>
+<span class="ansi-green-intense-fg ansi-bold">    245</span>
+&#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    246</span>
+<span class="ansi-red-fg"># Validate or convert input data</span>
+<span class="ansi-green-fg">--&gt; 247</span><span class="ansi-red-
+fg">         </span>X <span class="ansi-blue-fg">=</span>
+check_array<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-
+fg">,</span> accept_sparse<span class="ansi-blue-fg">=</span><span
+class="ansi-blue-fg">&#34;csc&#34;</span><span class="ansi-blue-
+fg">,</span> dtype<span class="ansi-blue-fg">=</span>DTYPE<span
+class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    248</span>         y
+<span class="ansi-blue-fg">=</span> check_array<span class="ansi-blue-
+fg">(</span>y<span class="ansi-blue-fg">,</span> accept_sparse<span
+class="ansi-blue-fg">=</span><span class="ansi-blue-
+fg">&#39;csc&#39;</span><span class="ansi-blue-fg">,</span>
+ensure_2d<span class="ansi-blue-fg">=</span><span class="ansi-green-
+fg">False</span><span class="ansi-blue-fg">,</span> dtype<span
+class="ansi-blue-fg">=</span><span class="ansi-green-
+fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    249</span>
+<span class="ansi-green-fg">if</span> issparse<span class="ansi-blue-
+fg">(</span>X<span class="ansi-blue-fg">)</span><span class="ansi-
+blue-fg">:</span>
+<span class="ansi-green-
+fg">/Users/abhijit/anaconda/lib/python3.6/site-
+packages/sklearn/utils/validation.py</span> in <span class="ansi-cyan-
+fg">check_array</span><span class="ansi-blue-fg">(array,
+accept_sparse, dtype, order, copy, force_all_finite, ensure_2d,
+allow_nd, ensure_min_samples, ensure_min_features, warn_on_dtype,
+estimator)</span>
+<span class="ansi-green-intense-fg ansi-bold">    405</span>
+% (array.ndim, estimator_name))
+<span class="ansi-green-intense-fg ansi-bold">    406</span>
+<span class="ansi-green-fg">if</span> force_all_finite<span
+class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 407</span><span class="ansi-red-
+fg">             </span>_assert_all_finite<span class="ansi-blue-
+fg">(</span>array<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    408</span>
+<span class="ansi-green-intense-fg ansi-bold">    409</span>
+shape_repr <span class="ansi-blue-fg">=</span> _shape_repr<span
+class="ansi-blue-fg">(</span>array<span class="ansi-blue-
+fg">.</span>shape<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-
+fg">/Users/abhijit/anaconda/lib/python3.6/site-
+packages/sklearn/utils/validation.py</span> in <span class="ansi-cyan-
+fg">_assert_all_finite</span><span class="ansi-blue-fg">(X)</span>
+<span class="ansi-green-intense-fg ansi-bold">     56</span>
+and not np.isfinite(X).all()):
+<span class="ansi-green-intense-fg ansi-bold">     57</span>
+raise ValueError(&#34;Input contains NaN, infinity&#34;
+<span class="ansi-green-fg">---&gt; 58</span><span class="ansi-red-
+fg">                          &#34; or a value too large for %r.&#34;
+% X.dtype)
+</span><span class="ansi-green-intense-fg ansi-bold">     59</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span>
+<span class="ansi-red-fg">ValueError</span>: Input contains NaN,
+infinity or a value too large for dtype(&#39;float32&#39;).
+</pre></div>
+
+    <HR/>
+    <div class="footer">
+      <p>Published from <a href="RFClassReg.py">RFClassReg.py</a>
+    using <a href="http://mpastell.com/pweave">Pweave</a> 0.30.1
+    on 10-10-2017.<p></div>
+
+            </div>
+        </div>
+    </div>
+  </BODY>
+</HTML>

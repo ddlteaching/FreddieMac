@@ -14,7 +14,7 @@ Training.html: $(MD_TARGETS)
 	pandoc --css pweave.css --toc -t html -o Training.html *.md
 
 Training.pdf: $(MD_TARGETS)
-	pandoc --template eisvogel.tex  -o Training.pdf --toc --highlight-style tango  *.md
+	pandoc --template eisvogel.tex  -o Training.pdf --toc -N --highlight-style tango  *.md
 
 md : $(MD_TARGETS)
 

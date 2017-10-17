@@ -1,4 +1,3 @@
-\newpage
 
 # Random Forests
 

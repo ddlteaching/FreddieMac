@@ -1,0 +1,253 @@
+\documentclass[a4paper,11pt,final]{article}
+        \usepackage{fancyvrb, color, graphicx, hyperref, amsmath, url, textcomp}
+        \usepackage{palatino}
+        \usepackage[a4paper,text={16.5cm,25.2cm},centering]{geometry}
+
+        %Set different options for xetex and luatex
+        \usepackage{iftex}
+        \ifxetex\usepackage{fontspec}\fi
+
+        \ifluatex\usepackage{fontspec}\fi
+
+        \usepackage{xcolor}
+        % ANSI colors from nbconvert
+        \definecolor{ansi-black}{HTML}{3E424D}
+        \definecolor{ansi-black-intense}{HTML}{282C36}
+        \definecolor{ansi-red}{HTML}{E75C58}
+        \definecolor{ansi-red-intense}{HTML}{B22B31}
+        \definecolor{ansi-green}{HTML}{00A250}
+        \definecolor{ansi-green-intense}{HTML}{007427}
+        \definecolor{ansi-yellow}{HTML}{DDB62B}
+        \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+        \definecolor{ansi-blue}{HTML}{208FFB}
+        \definecolor{ansi-blue-intense}{HTML}{0065CA}
+        \definecolor{ansi-magenta}{HTML}{D160C4}
+        \definecolor{ansi-magenta-intense}{HTML}{A03196}
+        \definecolor{ansi-cyan}{HTML}{60C6C8}
+        \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+        \definecolor{ansi-white}{HTML}{C5C1B4}
+         \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+        \hypersetup
+        {   pdfauthor = {Pweave},
+            pdftitle={Published from 01-Introduction.pmd},
+            colorlinks=TRUE,
+            linkcolor=black,
+            citecolor=blue,
+            urlcolor=blue
+        }
+        \setlength{\parindent}{0pt}
+        \setlength{\parskip}{1.2ex}
+        % fix for pandoc 1.14
+        \providecommand{\tightlist}{%
+            \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+        
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+        
+\begin{document}
+\section{Introduction}\label{introduction}
+
+Python is a popular general-purpose computing language. It is an
+open-source language released under a liberal
+\href{https://docs.python.org/3/license.html}{license} that is
+compatible with the
+\href{https://www.gnu.org/licenses/gpl-3.0.en.html}{GPL}.
+
+In recent times, Python has become one of the preferred open-source
+languages for doing data science (along with
+\href{http://www.r-project.org}{R}). This has been driven by the
+development of the \href{http://www.numpy.org}{\texttt{numpy}},
+\href{http://www.scipy.org}{\texttt{scipy}} and
+\href{http://matplotlib.org}{\texttt{matplotlib}} packages in the 90s to
+mimic Matlab, and then development of
+\href{http://pandas.pydata.org}{\texttt{pandas}},
+\href{http://www.statsmodels.org}{\texttt{statsmodels}} and
+\href{http://scikit-learn.org}{\texttt{sckit-learn}} in the 2000s to add
+statistical and machine learning functionality akin to R. This has come
+to be known, along with some other packages, as the
+\href{https://pydata.org/downloads.html}{PyData Stack}.
+
+\subsection{Installing Python}\label{installing-python}
+
+The easiest way to install Python for data science is using the Anaconda
+Python Distribution, provided by
+\href{https://www.anaconda.com/}{Anaconda, Inc.}. This distribution
+bundles together over 400 packages (depending on your operating system)
+useful for data science applications. To install Python:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Download the Anaconda Installer from
+  \href{https://www.anaconda.com/download}{Anaconda} based on your
+  operating system. Currently Python version 3.6 is preferred since the
+  support for Python version 2.7 will cease soon.
+\item
+  Open the installer and install Anaconda
+\end{enumerate}
+
+\begin{quote}
+Note for Mac users: The Mac OS comes with a default Python installation
+that is part of the operating system. Anaconda is installed at a
+different location and doesn't overwrite the system Python. The
+installation changes the default Python to Anaconda, so when you run
+Python from the terminal by typing \texttt{python}, the Anaconda version
+will be used. Optionally you can keep your default system version of
+Python as the default and create an alias in your .bashrc file to access
+the Anaconda version of Python.
+\end{quote}
+
+\subsection{Training}\label{training}
+
+This training will consist of four modules:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \protect\hyperlink{IntroToPython}{Introduction to Python}
+\item
+  \protect\hyperlink{DecisionTrees}{Decision Trees}
+\item
+  \protect\hyperlink{RandomForests}{Bagging and Random Forests}
+\item
+  \protect\hyperlink{XGBoost}{Boosting and XGBoost}
+\end{enumerate}
+
+We will start with an introduction to Python programming for new users
+of Python, to get users up to speed with basic Python syntax for data
+science. This will lead up to using basic \texttt{pandas} for data
+manipulation. Additional Python packages will be introduced in later
+sections. We will introduce selected intermediate Python programming
+concepts with an explanatory note, as needed.
+
+Next, we will introduce
+\href{https://en.wikipedia.org/wiki/Decision_tree_learning}{decision
+trees}, specifically the Classification and Regression trees, or CART.
+We will discuss the conceptual basis of decision trees with binary
+splits. We will then formulate the algorithm and derive a Python program
+to implement decision trees. Next, we will introduce the
+\texttt{scikit-learn} package and its implementation of decision trees.
+We will learn how to train decision trees, score new data to make
+predictions, and tune decision trees for optimal performance.
+
+Ensemble learning is a general method for using multiple learning
+methods to derive a meta-machine that can perform better than the
+original machines. We develop two ensemble machines using decision trees
+as \emph{base learners}, namely, Random Forests and Gradient Boosted
+Machines. The former is based on the general method of \emph{bagging} or
+\emph{bootstrap aggregating} a number of base learners to create an
+improved predictive engine. The latter uses an optimization principle
+called \emph{boosting} which recursively fits base learners to data to
+optimize some loss function or fit criterion. The particular
+implementation of boosting that we will explore is
+\href{http://xgboost.readthedocs.io/en/latest/}{\emph{XGBoost}}, a
+scalable, fast and efficient implementation of gradient boosted trees.
+
+As we proceed with these four modules, we will also introduce various
+important statistical and computational concepts that are relevant to
+machine learning, for example, the bias-variance tradeoff, prediction
+error and its assessment in ensemble models, and others.
+
+\newpage
+\end{document}

@@ -1,0 +1,6 @@
+\select@language {english}
+\contentsline {section}{\nonumberline Introduction}{1}{section*.2}
+\contentsline {subsection}{\nonumberline Installing Python}{1}{section*.3}
+\contentsline {subsection}{\nonumberline Training}{1}{section*.4}
+\contentsline {section}{\nonumberline Introduction to Python}{2}{section*.5}
+\contentsline {subsection}{\nonumberline Base Python}{2}{section*.6}

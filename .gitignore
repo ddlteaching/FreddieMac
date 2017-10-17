@@ -11,3 +11,6 @@ site_libs/*
 *.log
 *.js
 Lectures/Cohort1/.ipynb_checkpoints/*
+test*
+*.out
+*.epub
