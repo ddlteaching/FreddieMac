@@ -193,7 +193,7 @@ mysum([1,2,'a',4,5])
 def mysum(x):
     """
     Summing a list or tuple
-    
+
     USAGE: mysum(x)
     """
     s = 0
@@ -330,8 +330,3 @@ D.iloc[:3,0]
 D.loc[0,'X2']
 D.index = pd.Index(['a','b','c','d'])
 D.loc['c','X1']
-
-
-
-
-

@@ -7,7 +7,7 @@ output: html_document
 
 
 ## Python Scripts
-1. Introduction ([link](../scripts/Introduction.py))([In class](cohort4day1.py))
+1. Introduction ([link](../scripts/Introduction.py))([In class](cohort5day1.py))
 
 ## Presentations
 1. Introduction (<a href = "../present/Introduction.html" target="_blank">link</a>)
