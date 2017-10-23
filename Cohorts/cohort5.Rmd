@@ -1,16 +1,19 @@
 ---
 title: "Cohort 5"
 author: "Abhijit Dasgupta"
-date: "October 2, 2017"
+date: "October 23, 2017"
 output: html_document
 ---
 
 
 ## Python Scripts
+1. Introduction ([link](../scripts/Introduction.py))([In class](cohort4day1.py))
 
 ## Presentations
+1. Introduction (<a href = "../present/Introduction.html" target="_blank">link</a>)
 
 ## Resources
+1. Matplotlib gallery (<a href = "https://matplotlib.org/gallery.html" target = "_blank">link</a>)
 
 
 [Back to Cohorts page](../cohorts.html)
