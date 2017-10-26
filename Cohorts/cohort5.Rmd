@@ -8,13 +8,20 @@ output: html_document
 
 ## Python Scripts
 1. Introduction ([link](../scripts/Introduction.py))([In class](cohort5day1.py))
-2. Developing Decision Trees ([link](../scripts/MyDT.py))
+2. Developing Decision Trees ([link](../scripts/MyDT.py))([In class](cohort5day3.py))([mytree module](../scripts/my_tree.py))
 3. Decision Tree fit and validation ([link](../scripts/DTImplementation.py))
+4. Looking at unbalanced data ([link](../scripts/unbalanced.py))
+5. Building bagged trees ([link](../scripts/RFIntro.py))
+6. Deconstructing a Random Forest ([link](../scripts/RFDeconstructed.py))
+7. Tuning a Random Forest ([link](../scripts/RFTuning.py))
 
 ## Presentations
 1. Introduction (<a href = "../present/Introduction.html" target="_blank">link</a>)
 2. Introduction to Machine Learning ([link](../present/IntroToML.pdf))
 3. Introduction to Decision Trees (<a href="../present/DTSlides.html" target="_blank">link</a>)
+4. Unbalanced data (<a href='../present/Unbalanced.html' target = '_blank'>link</a>)
+5. The Bias-Variance Tradeoff (<a href = "../present/BiasVariance.html" target = "_blank">link</a>)
+6. Fitting Random Forests (<a href = "../present/RFFit.html" target="_blank">link</a>)
 
 ## Resources
 1. Matplotlib gallery (<a href = "https://matplotlib.org/gallery.html" target = "_blank">link</a>)
