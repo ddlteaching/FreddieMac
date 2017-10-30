@@ -22,7 +22,7 @@ def gini_index(groups_indx, data, target_name):
     data is the full data set from which indices are computed
     """
     n_instances = len(groups_indx['left']) + len(groups_indx['right'])
-    
+
     # frequency-weighted Gini
     GI = 0
     for key in groups_indx:
@@ -65,13 +65,13 @@ def split(node, max_depth, min_size, depth, dat, target_var):
     """
     node = the output of get_split
     """
-    
+
     if depth > max_depth:
-        node['left'],node['right'] = to_terminal(node['groups']['left'], dat, target_var), 
+        node['left'],node['right'] = to_terminal(node['groups']['left'], dat, target_var),
             to_terminal(node['groups']['right'], dat, target_var)
         del(node['groups'])
         return(node)
-    
+
     for key in node['groups']:
         print(key)
         indx = node['groups'][key]
@@ -84,7 +84,7 @@ def split(node, max_depth, min_size, depth, dat, target_var):
         node[key] = get_split(dat.loc[indx], target_var, min_size)
         split(node[key], max_depth, min_size, depth+1, dat, target_var)
     del(node['groups'])
-    
+
 
 
 
@@ -115,3 +115,6 @@ def predict(tree, test_dat):
     for indx in test_dat.index:
         preds.loc[indx] = predict_obs(tree, test_dat.loc[indx])
     return(preds)
+
+
+if

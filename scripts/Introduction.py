@@ -263,7 +263,7 @@ y = 3 + 2*x + rng.normal(0, 1, 100)
 
 plt.scatter(x,y)
 
-dir(rng)
+plt.scatter(x,y)
 
 np.zeros_like(B)
 
@@ -304,7 +304,8 @@ iris['Sepal.Length'].plot(kind='hist')
 
 iris.dtypes
 
-iris.groupby('Species').mean()
+
+
 
 iris.groupby('Species').agg([np.mean, np.std])
 

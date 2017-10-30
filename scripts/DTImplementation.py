@@ -14,13 +14,6 @@ import seaborn as sns
 import sklearn # New
 %matplotlib inline
 
-def importance_plot(vals, names):
-    fig, ax = plt.subplots()
-    ax.bar(range(len(vals)), vals)
-    plt.xticks(range(len(vals)), names)
-    for tick in ax.get_xticklabels():
-        tick.set_rotation(45)
-    plt.show()
 
 
 
@@ -84,7 +77,7 @@ Z = iris_model2.predict(np.c_[xx.ravel(), yy.ravel()])
 zz = Z.reshape(xx.shape)
 
 cs = plt.contourf(xx, yy, zz, cmap = plt.cm.RdYlBu)
-plt.scatter(X1[:,0], X1[:,1], c = y, 
+plt.scatter(X1[:,0], X1[:,1], c = y,
             cmap = ListedColormap(['r','y','b']),
             edgecolor='k', s = 20)
 plt.xlabel('Petal Length')
@@ -170,14 +163,14 @@ boston_model2.fit(X,y)
 boston_model3.fit(X,y)
 
 fig, ax = plt.subplots(1,3, sharey=True)
-ax[0].scatter(y, boston_model1.predict(X))
-ax[1].scatter(y, boston_model2.predict(X))
-ax[2].scatter(y, boston_model3.predict(X))
+ax[0].scatter(y, boston_model1.predict(X_test))
+ax[1].scatter(y, boston_model2.predict(X_test))
+ax[2].scatter(y, boston_model3.predict(X_test))
 
 boston_model = DecisionTreeRegressor()
 boston_model.get_params()
 
-param_grid = {'max_depth': [1,2,5,10,20],
+param_grid = {'max_depth': [1,2,5,10,15,20],
               'min_samples_leaf':[0.2, 0.1, 0.05, 1]}
 gs_boston = GridSearchCV(boston_model, param_grid, cv=5)
 gs_boston.fit(X,y)
@@ -188,6 +181,13 @@ d = pd.DataFrame(gs_boston.cv_results_)
 results = d[['param_max_depth','param_min_samples_leaf', 'mean_test_score']].pivot_table(values = 'mean_test_score',
  index='param_max_depth', columns = 'param_min_samples_leaf')
 
+def importance_plot(vals, names):
+    fig, ax = plt.subplots()
+    ax.bar(range(len(vals)), vals)
+    plt.xticks(range(len(vals)), names)
+    for tick in ax.get_xticklabels():
+        tick.set_rotation(45)
+    plt.show()
 
 boston_model_best.fit(X,y)
 boston_model_best.feature_importances_
