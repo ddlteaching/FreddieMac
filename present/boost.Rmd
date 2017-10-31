@@ -118,9 +118,9 @@ points(x0,y0, pch=3)
 
 ## Loss function minimization
 
-+ We want to minimize a chosen loss function $L(y, X)$
-+ The gradient of this loss function is $\frac{d L(y,X)}{d X}$
-+ This is a vector with length = number of columns of X
++ We want to minimize a chosen loss function $L(y, p)$, where $p$ is the prediction
++ The gradient of this loss function is $\frac{d L(y,p)}{d p}$
++ This is a vector with length = number of data points 
 + Compute this at each point
 + Move in that direction
 
@@ -141,13 +141,24 @@ points(x0,y0, pch=3)
 
 ## Stochastic Gradient Descent
 
-+ We can overfit our data using just gradient descent
-+ Instead, fit learner to random subset of data, predict on remainder
++ Computing the gradient on large datasets can be prohibitively expensive
++ Gradient takes approx 3x computes than the objective function
++ All that for 1 descent step
 
 ## Stochastic gradient descent
 
-+ Also, at each stage, take a random sample of predictors
-+ Fit the model using this random sample of predictors
++ Instead, take a crappy approximate step many times !!
++ Randomly shuffle your data
++ Now compute the gradient at the first point
++ Move your model in that direction (to improve fit on just one point!!)
++ Do the same for every point in your training data
++ So one scan-through the training set results in many small steps
+
+## Stochastic gradient descent
+
++ Turns out, for large data, this is much more efficient
++ However, to add robustness, don't do single data point, but a small random subset
++ Compute average gradient in subset, then move model in that direction
 
 # Gradient boosted trees
 

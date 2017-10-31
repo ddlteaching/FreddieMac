@@ -544,9 +544,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section><section id="loss-function-minimization" class="slide level2">
 <h2>Loss function minimization</h2>
 <ul>
-<li>We want to minimize a chosen loss function <span class="math inline">\(L(y, X)\)</span></li>
-<li>The gradient of this loss function is <span class="math inline">\(\frac{d L(y,X)}{d X}\)</span></li>
-<li>This is a vector with length = number of columns of X</li>
+<li>We want to minimize a chosen loss function <span class="math inline">\(L(y, p)\)</span>, where <span class="math inline">\(p\)</span> is the prediction</li>
+<li>The gradient of this loss function is <span class="math inline">\(\frac{d L(y,p)}{d p}\)</span></li>
+<li>This is a vector with length = number of data points</li>
 <li>Compute this at each point</li>
 <li>Move in that direction</li>
 </ul>
@@ -568,14 +568,26 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section><section id="stochastic-gradient-descent" class="titleslide slide level1"><h1>Stochastic Gradient Descent</h1></section><section id="stochastic-gradient-descent-1" class="slide level2">
 <h2>Stochastic Gradient Descent</h2>
 <ul>
-<li>We can overfit our data using just gradient descent</li>
-<li>Instead, fit learner to random subset of data, predict on remainder</li>
+<li>Computing the gradient on large datasets can be prohibitively expensive</li>
+<li>Gradient takes approx 3x computes than the objective function</li>
+<li>All that for 1 descent step</li>
 </ul>
 </section><section id="stochastic-gradient-descent-2" class="slide level2">
 <h2>Stochastic gradient descent</h2>
 <ul>
-<li>Also, at each stage, take a random sample of predictors</li>
-<li>Fit the model using this random sample of predictors</li>
+<li>Instead, take a crappy approximate step many times !!</li>
+<li>Randomly shuffle your data</li>
+<li>Now compute the gradient at the first point</li>
+<li>Move your model in that direction (to improve fit on just one point!!)</li>
+<li>Do the same for every point in your training data</li>
+<li>So one scan-through the training set results in many small steps</li>
+</ul>
+</section><section id="stochastic-gradient-descent-3" class="slide level2">
+<h2>Stochastic gradient descent</h2>
+<ul>
+<li>Turns out, for large data, this is much more efficient</li>
+<li>However, to add robustness, don’t do single data point, but a small random subset</li>
+<li>Compute average gradient in subset, then move model in that direction</li>
 </ul>
 </section></section>
 <section><section id="gradient-boosted-trees" class="titleslide slide level1"><h1>Gradient boosted trees</h1></section><section id="gradient-boosted-trees-1" class="slide level2">
