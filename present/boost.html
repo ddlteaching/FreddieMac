@@ -560,8 +560,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section><section id="logistic-loss" class="slide level2">
 <h2>Logistic loss</h2>
 <ul>
-<li><span class="math inline">\(L(y,p) = \log(1 + e^{-yp})\)</span></li>
-<li><p>Gradient <span class="math inline">\(G(y,p) = -ye^{-yp}/(1+e^{-yp})\)</span></p></li>
+<li><span class="math inline">\(L(y, p) = p \log(1+e^{-y}) + (1-p)\log(1+e^y)\)</span></li>
+<li><p>Gradient <span class="math inline">\(G(y,p) = p - \frac{1}{1+e^{-y}}\)</span></p></li>
 <li><p>This is often used for binary targets, where <span class="math inline">\(y\in {0,1}\)</span>, and <span class="math inline">\(p\)</span> is the predicted probabilities</p></li>
 </ul>
 </section></section>
