@@ -1,20 +1,32 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Sep 12 05:30:33 2017
-My decision tree using pandas
+Created on Wed Oct 25 10:15:49 2017
+
+@author: abhijit
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Oct 25 08:17:50 2017
+
 @author: abhijit
 """
 import numpy as np
 import pandas as pd
 
-
 def gi_group(indx, dat, target_var):
+    """
+    dat = DataFrame object containing the full dataset
+    indx = index of rows that are included in the group
+    target_var = string giving the column name of the target variable in the dataset
+    
+    """
     x = dat[target_var].loc[indx]
     p = x.value_counts()/len(x)
     score = 1 - np.sum(p**2)
     return(score)
-
 
 def gini_index(groups_indx, data, target_name):
     """
@@ -22,7 +34,7 @@ def gini_index(groups_indx, data, target_name):
     data is the full data set from which indices are computed
     """
     n_instances = len(groups_indx['left']) + len(groups_indx['right'])
-
+    
     # frequency-weighted Gini
     GI = 0
     for key in groups_indx:
@@ -32,7 +44,7 @@ def gini_index(groups_indx, data, target_name):
         score = gi_group(groups_indx[key], data, target_name)
         GI += score * (size/n_instances)
     return(GI)
-#
+
 def test_split(variable, value, data):
     out = {'left': list(data.index[data[variable] < value]),
            'right': list(data.index[data[variable] >= value])}
@@ -61,17 +73,15 @@ def get_split(dat, target_var, min_size):
 def to_terminal(indx, dat, target_var):
     return(dat.loc[indx,target_var].value_counts().argmax())
 
+
 def split(node, max_depth, min_size, depth, dat, target_var):
     """
     node = the output of get_split
     """
-
     if depth > max_depth:
-        node['left'],node['right'] = to_terminal(node['groups']['left'], dat, target_var),
-            to_terminal(node['groups']['right'], dat, target_var)
+        node['left'],node['right'] = to_terminal(node['groups']['left'], dat, target_var), to_terminal(node['groups']['right'], dat, target_var)
         del(node['groups'])
         return(node)
-
     for key in node['groups']:
         print(key)
         indx = node['groups'][key]
@@ -84,9 +94,6 @@ def split(node, max_depth, min_size, depth, dat, target_var):
         node[key] = get_split(dat.loc[indx], target_var, min_size)
         split(node[key], max_depth, min_size, depth+1, dat, target_var)
     del(node['groups'])
-
-
-
 
 def build_tree(train, max_depth, min_size, target_var):
     root = get_split(train, target_var, min_size)
@@ -117,4 +124,9 @@ def predict(tree, test_dat):
     return(preds)
 
 
-if
+if __name__ == '__main__':
+    import os
+    os.chdir('/Users/abhijit/ARAASTAT/Teaching/FreddieMacFinal/data')
+    iris = pd.read_csv('iris.csv')
+    tree = build_tree(iris, 5, 10, 'Species')
+    predict(tree, iris)
