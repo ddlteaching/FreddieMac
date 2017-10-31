@@ -132,8 +132,8 @@ points(x0,y0, pch=3)
 
 ## Logistic loss
 
-+ $L(y,p) = \log(1 + e^{-yp})$
-+ Gradient $G(y,p) = -ye^{-yp}/(1+e^{-yp})$
++ $L(y, p) = p \log(1+e^{-y}) + (1-p)\log(1+e^y)$
++ Gradient $G(y,p) = p - \frac{1}{1+e^{-y}}$
 
 + This is often used for binary targets, where $y\in {0,1}$, and $p$ is the predicted probabilities
 
