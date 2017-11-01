@@ -574,14 +574,58 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section><section id="split-based-on-maximizing-gain" class="slide level2">
 <h2>Split based on maximizing Gain</h2>
 <p><span class="math display">\[ Gain = \frac{1}{2}\left[\frac{G_L^2}{H_L+\lambda} + \frac{G_R^2}{H_R+\lambda} - \frac{G_L^2+G_R^2}{H_L+H_R+\lambda} \right] - \gamma\]</span></p>
-</section><section id="changes-in-xgboost-from-standard-gradient-boosted-trees" class="slide level2">
-<h2>Changes in XGBoost from standard Gradient Boosted Trees</h2>
-<ol type="1">
-<li>Optimization based on specified loss function and its gradient and hessian</li>
-<li>Regularization baked in to the process</li>
-<li>Splitting rule also based on gradient, hessian of loss function as well as regularization parameters</li>
-<li>Scalable and parallelizable</li>
-</ol>
+</section></section>
+<section><section id="changes-in-xgboost-from-standard-gradient-boosted-trees" class="titleslide slide level1"><h1>Changes in XGBoost from standard Gradient Boosted Trees</h1></section><section id="split-finding-algorithm" class="slide level2">
+<h2>Split-finding algorithm</h2>
+<ul>
+<li>Optimization of splits based directly on the characteristics of the overall objective function</li>
+<li><p>Normally features have to be sorted and stored in memory</p>
+<ul>
+<li>XGBoost uses an approximate algorithm based on candidate split points</li>
+<li>Based on quantiles of the distribution of the feature</li>
+<li>Features binned into buckets based on the quantiles</li>
+<li>Split solution based on aggregated statistics on the buckets</li>
+<li>Candidate splits can be generated once (global), or can be locally adaptive
+<ul>
+<li>Global splitting requires finer grid for performance</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="column-blocking-and-parallelization" class="slide level2">
+<h2>Column-blocking and parallelization</h2>
+<ul>
+<li>Data stored in-memory in blocks, pre-sorted</li>
+<li>Computation done once and re-used</li>
+<li>Parallelizable process of sorting by blocks</li>
+<li>Split-finding can also be parallelized across blocks</li>
+</ul>
+</section><section id="candidate-splits-by-weighted-quantile-sketch" class="slide level2">
+<h2>Candidate splits by weighted quantile sketch</h2>
+<ul>
+<li>Finds “optimal” candidate splits</li>
+<li>Uses data weighted by the hessian of the objective function</li>
+<li>Uses percentile distribution of weighted data</li>
+<li>Novel algorithm</li>
+</ul>
+</section><section id="takes-advantage-of-sparsity" class="slide level2">
+<h2>Takes advantage of sparsity</h2>
+<ul>
+<li>Sparsity due to one-hot encoding, missing data, zero entries</li>
+<li>Takes only the non-missing part of the data into account</li>
+<li>Treats missing data as a class to be sent down trees</li>
+</ul>
+</section><section id="big-data-architecture" class="slide level2">
+<h2>Big data architecture</h2>
+<ul>
+<li>Out-of-memory data split into blocks that are stored on disk.</li>
+<li>Blocks are column-compressed and decompressed on-the-fly in parallel</li>
+</ul>
+</section><section id="regularization-2" class="slide level2">
+<h2>Regularization</h2>
+<ul>
+<li>Explicit use of a regularized objective function</li>
+<li>Reduces risk of overfitting</li>
+</ul>
 </section><section id="reference" class="slide level2">
 <h2>Reference</h2>
 <p><a href="https://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf">Introduction to Boosted Trees</a> by Tianqi Chen</p>

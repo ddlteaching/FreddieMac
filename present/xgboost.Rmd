@@ -152,12 +152,50 @@ $$ Obj = -\frac{1}{2} \sum_{j=1}^T \frac{G_j^2}{H_j+\lambda}+\gamma T$$
 
 $$ Gain = \frac{1}{2}\left[\frac{G_L^2}{H_L+\lambda} + \frac{G_R^2}{H_R+\lambda} - \frac{G_L^2+G_R^2}{H_L+H_R+\lambda} \right] - \gamma$$
 
-## Changes in XGBoost from standard Gradient Boosted Trees
+# Changes in XGBoost from standard Gradient Boosted Trees
 
-1. Optimization based on specified loss function and its gradient and hessian
-2. Regularization baked in to the process
-3. Splitting rule also based on gradient, hessian of loss function as well as regularization parameters
-4. Scalable and parallelizable
+## Split-finding algorithm
+
++ Optimization of splits based directly on the characteristics of the overall objective function
++ Normally features have to be sorted and stored in memory
+
+    + XGBoost uses an approximate algorithm based on candidate split points
+    + Based on quantiles of the distribution of the feature
+    + Features binned into buckets based on the quantiles
+    + Split solution based on aggregated statistics on the buckets
+    + Candidate splits can be generated once (global), or can be locally adaptive
+        + Global splitting requires finer grid for performance
+
+## Column-blocking and parallelization
+
++ Data stored in-memory in blocks, pre-sorted
++ Computation done once and re-used
++ Parallelizable process of sorting by blocks
++ Split-finding can also be parallelized across blocks
+
+## Candidate splits by weighted quantile sketch
+
++ Finds "optimal" candidate splits 
++ Uses data weighted by the hessian of the objective function
++ Uses percentile distribution of weighted data
++ Novel algorithm
+
+## Takes advantage of sparsity
+
++ Sparsity due to one-hot encoding, missing data, zero entries
++ Takes only the non-missing part of the data into account
++ Treats missing data as a class to be sent down trees
+
+## Big data architecture
+
++ Out-of-memory data split into blocks that are stored on disk.
++ Blocks are column-compressed and decompressed on-the-fly in parallel
+
+## Regularization
+
++ Explicit use of a regularized objective function 
++ Reduces risk of overfitting
+
 
 ## Reference
 

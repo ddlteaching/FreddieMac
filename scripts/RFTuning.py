@@ -167,7 +167,7 @@ X = iris['data']
 y = iris['target']
 
 
-for i in range(50):
+for i in range(4):
     print(i)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3)
     r = clf.fit(X_train, y_train)
@@ -195,7 +195,9 @@ plt.yticks(range(len(indx)), np.array(names)[indx])
 # Variable selection
 #==============================================================================
 
+
 from sklearn.feature_selection import RFECV
+X, y = breast['data'], breast['target']
 estimator = RandomForestClassifier(n_estimators=200, random_state=5)
 selector = RFECV(estimator, cv=5, scoring='roc_auc')
 selector.fit(X,y)
