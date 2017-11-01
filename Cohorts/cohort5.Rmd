@@ -16,6 +16,7 @@ output: html_document
 7. Tuning a Random Forest ([link](../scripts/RFTuning.py))
 8. Fitting a Random Forest ([link](../scripts/RFClassReg.py))([In-class](cohort5day5.py))
 9. Boosting from scratch ([link](../scripts/boosting.py))
+10. XGBoost ([link](../scripts/myxgboost.py))([In-class script](cohort5day7.py))
 
 ## Presentations
 1. Introduction (<a href = "../present/Introduction.html" target="_blank">link</a>)
@@ -25,6 +26,7 @@ output: html_document
 5. The Bias-Variance Tradeoff (<a href = "../present/BiasVariance.html" target = "_blank">link</a>)
 6. Fitting Random Forests (<a href = "../present/RFFit.html" target="_blank">link</a>)
 7. Boosting (<a href="../present/boost.html" target="_blank">link</a>)
+8. XGBoost (<a href="../present/xgboost.html" target="_blank">link</a>)
 
 ## Resources
 1. Matplotlib gallery (<a href = "https://matplotlib.org/gallery.html" target = "_blank">link</a>)
