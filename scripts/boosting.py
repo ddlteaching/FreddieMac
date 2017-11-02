@@ -91,7 +91,7 @@ def grad_b(a,b):
 
 #' Now we start with gradient descent on the __paramter space__ (a,b).
 a, b = [0], [0]
-learning_rate = 0.002
+learning_rate = 0.1
 for i in range(10):
     a1 = a[-1] - learning_rate*grad_a(a[-1],b[-1])
     b1 = b[-1] - learning_rate*grad_b(a[-1],b[-1])
@@ -107,6 +107,11 @@ for i in range(10):
 #' ### Using decision trees on the linear regression problem
 from sklearn.tree import DecisionTreeRegressor
 
+rng = np.random.RandomState(24)
+x = rng.standard_normal(100)
+y = 3 - 2*x + rng.normal(0,0.4,100)
+plt.scatter(x,y)
+
 dt = DecisionTreeRegressor(max_depth=2)
 x = x[:, np.newaxis]
 dt.fit(x,y)
@@ -121,7 +126,7 @@ def squared_loss(y, p):
 def grad(y, p): # with respect to p
     return(np.sum(-2*(y - p)))
 
-learning_rate = 1
+learning_rate = .1
 res1 = - learning_rate * grad(y, p)
 tr2 = dt.fit(x, res1) # train to learn about the step
 p1 = p + dt.predict(x) # Go to the new location
@@ -178,7 +183,7 @@ y = breast['target']
 def loss_logistic(y, p):
     return(np.sum(p * np.log(1 + np.exp(-y))+ (1 - p) * np.log(1 + np.exp(y))))
 def grad(y,p):
-    return(p - 1/(1+np.exp(-y)))
+    return(
 
 
 dt1 = DecisionTreeRegressor(min_samples_leaf=5)
